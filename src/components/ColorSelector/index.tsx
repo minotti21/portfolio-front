@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { StyledBorderColorSelectorIcon, StyledColorSelector, ColorSelectorContainer, StyledColorIcon } from "./styles";
-import { ThemeContext } from "@/app/layout";
+import { UserThemeContext } from "@/context/UserThemeContext";
 import { isEqual } from "lodash";
-import { colors } from "@/utils/colors";
+import { colors } from "@/constants/colors";
 
 
 export default function ColorSelector() {
     const [showColors, setShowColors] = useState(false);
 
-    const { theme, changeTheme } = useContext(ThemeContext);
+    const { theme, changeTheme } = useContext(UserThemeContext);
 
     const handleClick = (code: string) => {
         const newTheme = {
@@ -28,13 +28,11 @@ export default function ColorSelector() {
         <ColorSelectorContainer>
             <StyledBorderColorSelectorIcon onClick={() => setShowColors(!showColors)}>
             </StyledBorderColorSelectorIcon>
-            {showColors && (
-                <StyledColorSelector>
-                    {colors.map(color => (
-                        <StyledColorIcon onClick={() => handleClick(color)} key={color} color={color} />
-                    ))}
-                </StyledColorSelector>
-            )}
+            <StyledColorSelector $showColors={showColors}>
+                {colors.map(color => (
+                    <StyledColorIcon onClick={() => handleClick(color)} key={color} color={color} />
+                ))}
+            </StyledColorSelector>
         </ColorSelectorContainer>
     );
 }

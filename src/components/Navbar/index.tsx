@@ -1,25 +1,38 @@
 "use client";
 
-import { StyledLogo, StyledNavItem, StyledNavItems, NavbarContainer, StyledThemeIcon } from "./styles";
-import { Sun, Moon } from "react-feather";
-import { useContext } from "react";
+import { StyledLogo, StyledNavItem, StyledNavItems, NavbarContainer, StyledThemeIcon, NavbarPosition } from "./styles";
+import { PiSun, PiMoon } from 'react-icons/pi';
+import { useContext, useEffect, useState } from "react";
 import ColorSelector from "../ColorSelector";
 import { isEqual } from "lodash";
 import Link from "next/link";
-import { ThemeContext } from "@/app/layout";
+import { UserThemeContext } from "@/context/UserThemeContext";
+import { black, white } from "@/constants/colors";
 
 export default function Navbar() {
-    const { theme, changeTheme } = useContext(ThemeContext);
+    const [currentWindowHeight, setCurrentWindowHeight] = useState(0);
+    const { theme, changeTheme } = useContext(UserThemeContext);
+    const showBorder = currentWindowHeight !== 0;
 
-    console.log(theme);
+    const updateWindowHeight = () => {
+        setCurrentWindowHeight(window.scrollY);
+    };
 
-    const isThemeLight = theme.backgroundColor === 'rgb(248, 250, 252)';
+    useEffect(() => {
+        window.addEventListener('scroll', updateWindowHeight);
+
+        return () => {
+            window.removeEventListener('scroll', updateWindowHeight);
+        };
+    }, []);
+
+    const isThemeLight = theme.backgroundColor === white;
 
     const toggleTheme = () => {
         const newTheme = {
             ...theme,
-            fontColor: isThemeLight ? 'rgb(248, 250, 252)' : 'rgb(17, 17, 17)',
-            backgroundColor: isThemeLight ? 'rgb(17, 17, 17)' : 'rgb(248, 250, 252)',
+            fontColor: isThemeLight ? white : black,
+            backgroundColor: isThemeLight ? black : white,
         }
 
         if (isEqual(theme, newTheme)) {
@@ -30,16 +43,18 @@ export default function Navbar() {
     }
 
     return (
-        <NavbarContainer>
-            <StyledLogo>minotti.dev</StyledLogo>
-            <StyledNavItems>
-                <StyledNavItem><Link href="/">Início</Link></StyledNavItem>
-                <StyledNavItem><Link href="/about">Sobre</Link></StyledNavItem>
-                <StyledNavItem><Link href="/projects">Projetos</Link></StyledNavItem>
-                <StyledNavItem><Link href="/contact">Contato</Link></StyledNavItem>
-                <StyledThemeIcon onClick={toggleTheme}>{isThemeLight ? <Sun height={25} /> : <Moon />} </StyledThemeIcon>
-                <ColorSelector />
-            </StyledNavItems>
-        </NavbarContainer>
+        <NavbarPosition $showBorder={showBorder}>
+            <NavbarContainer>
+                <StyledLogo>minotti.dev</StyledLogo>
+                <StyledNavItems>
+                    <StyledNavItem><Link href="#">Início</Link></StyledNavItem>
+                    <StyledNavItem><Link href="#about">Sobre</Link></StyledNavItem>
+                    <StyledNavItem><Link href="#projects">Projetos</Link></StyledNavItem>
+                    <StyledNavItem><Link href="#contact">Contato</Link></StyledNavItem>
+                    <StyledThemeIcon onClick={toggleTheme}>{isThemeLight ? <PiSun size={25} /> : <PiMoon size={25} />} </StyledThemeIcon>
+                    <ColorSelector />
+                </StyledNavItems>
+            </NavbarContainer>
+        </NavbarPosition>
     );
 }

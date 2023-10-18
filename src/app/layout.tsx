@@ -1,19 +1,10 @@
-"use client"
-
 import NameProvider from '@/context/NameContext';
 import StyledComponentsRegistry from '@/lib/registry';
-import { GlobalStyle } from '@/utils/globalTheme';
+import dynamic from 'next/dynamic';
 import { Poppins } from 'next/font/google';
-import { createContext, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import { ThemeType } from '../../styled';
-import getThemeFromLocalStorage from '@/utils/getThemeFromLocalStorage';
-import Navbar from '@/components/Navbar';
+import AppContainer from '../components/AppContainer';
 
-interface ThemeContextProps {
-  theme: ThemeType
-  changeTheme: (theme: ThemeType) => void;
-}
+const DynamicUserThemeProvider = dynamic(() => import('../context/UserThemeContext'), { ssr: false, loading: () => <h1>Carregando...</h1> });
 
 const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700', '800', '900'], subsets: ['latin'] });
 
@@ -22,35 +13,25 @@ export const metadata = {
   description: 'Portfólio de Vinicius Minotti',
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const [theme, setTheme] = useState<ThemeType>(() => getThemeFromLocalStorage());
-
-  const changeTheme = (newTheme: ThemeType) => {
-    typeof window !== 'undefined' && localStorage.setItem('theme', JSON.stringify(newTheme));
-
-    setTheme(newTheme);
-  }
 
   return (
-    <html lang="en">
+    <html lang="pt">
       <body className={poppins.className}>
         <StyledComponentsRegistry>
-          <ThemeProvider theme={theme}>
-            <ThemeContext.Provider value={{ theme, changeTheme }}>
-              <NameProvider>
-                <GlobalStyle />
-                <Navbar />
+          <DynamicUserThemeProvider>
+            <NameProvider>
+              <AppContainer>
                 {children}
-              </NameProvider>
-            </ThemeContext.Provider>
-          </ThemeProvider>
-        </StyledComponentsRegistry></body>
+              </AppContainer>
+            </NameProvider>
+          </DynamicUserThemeProvider>
+        </StyledComponentsRegistry>
+      </body>
     </html>
-  )
+  );
 }

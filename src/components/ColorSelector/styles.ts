@@ -1,3 +1,4 @@
+import { white } from "@/constants/colors";
 import rgbUtils from "@/utils/rgbUtils";
 import { styled } from "styled-components";
 
@@ -25,17 +26,19 @@ export const StyledBorderColorSelectorIcon = styled.div`
     cursor: pointer;
 `
 
-export const StyledColorSelector = styled.div`
+export const StyledColorSelector = styled.div<{ $showColors: boolean }>`
     display: flex;
     position: absolute;
     margin-top: 0.6em;
     right: 0;
     padding: 12px;
     border-radius: 12px;
-    background-color: ${({ theme }) => theme.backgroundColor === 'rgb(248, 250, 252)' ? rgbUtils.darkenRGBColor(theme.backgroundColor, 10) : rgbUtils.lightenRGBColor(theme.backgroundColor, 15)};
+    background-color: ${({ theme }) => theme.backgroundColor === white ? rgbUtils.darkenRGBColor(theme.backgroundColor, 6) : rgbUtils.lightenRGBColor(theme.backgroundColor, 15)};
     -webkit-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
     -moz-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
     box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
+    opacity: ${({ $showColors }) => $showColors ? 1 : 0};
+    transition: 0.2s;
 
 `
 
@@ -43,7 +46,7 @@ export const StyledColorIcon = styled.div`
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background-color: ${props => props.color};
+    background-color: ${({ color }) => color};
     cursor: pointer;
     margin: 0 4px;
 `

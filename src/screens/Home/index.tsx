@@ -1,33 +1,35 @@
-import Section from "@/components/Section";
-import { HomeButton, HomeContainer, StyledItemList, StyledList, StyledSubtitle, StyledText, StyledTitle, TextAndImageContainer, TextContainer } from "./styles";
-import eublob from '../../../public/eublob.png';
-import { useContext, useEffect, useState } from "react";
+"use client";
+
+import InitialModal from "@/components/InitialModal";
+import SectionContainer from "@/components/Section";
 import { NameContext } from "@/context/NameContext";
-import Image from "next/image";
+import { useContext } from "react";
+import { HomeContainer, StyledItemList, StyledList, StyledText, StyledTitle, TextContainer } from "./styles";
+import Button from "@/components/Button";
+
 
 export default function Home() {
     const { name } = useContext(NameContext);
 
     return (
-        <Section>
+        <SectionContainer>
+            <InitialModal />
             <HomeContainer>
-                <TextAndImageContainer>
-                    <TextContainer>
-                        <StyledTitle>Olá {name}, seja bem-vindo(a)</StyledTitle>
-                        <StyledTitle>ao meu portfólio! 😄</StyledTitle>
-                        <StyledText>Aqui você vai encontrar:</StyledText>
-                        <StyledList>
-                            <StyledItemList>Um pouco da minha história</StyledItemList>
-                            <StyledItemList>Meus hobbies e tecnologias</StyledItemList>
-                            <StyledItemList>Jogos desenvolvidos por mim</StyledItemList>
-                            <StyledItemList>Redes sociais para contato</StyledItemList>
-                        </StyledList>
-                        {/* <StyledSubtitle>Vamos nessa?</StyledSubtitle> */}
-                        <HomeButton>Conhecer</HomeButton>
-                    </TextContainer >
-                    <Image src={eublob} width={600} alt="eu"/>
-                </TextAndImageContainer>
+                <TextContainer>
+                    <StyledTitle>Olá {name}!</StyledTitle>
+                    <StyledTitle>Seja muito bem-vindo(a)</StyledTitle>
+                    <StyledTitle>ao meu portfólio! 😄</StyledTitle>
+                    <StyledText>Aqui você vai encontrar:</StyledText>
+                    <StyledList>
+                        <StyledItemList>Um pouco da minha história</StyledItemList>
+                        <StyledItemList>Meus hobbies e tecnologias</StyledItemList>
+                        <StyledItemList>Jogos desenvolvidos por mim</StyledItemList>
+                        <StyledItemList>Redes sociais para contato</StyledItemList>
+                    </StyledList>
+                    <Button text="Conhecer" />
+                </TextContainer>
+                {/* <StyledSvgBlob src="/blob.svg" /> */}
             </HomeContainer>
-        </Section>
+        </SectionContainer>
     )
 }

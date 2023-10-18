@@ -1,13 +1,13 @@
 import { ReactNode } from "react";
-import { SectionContainer } from "./styles";
+import { StyledSectionContainer } from "./styles";
 
 
 interface SectionProps {
     children: ReactNode;
 }
 
-export default function Section({ children }: SectionProps) {
+export default function SectionContainer({ children }: SectionProps) {
     return (
-        <SectionContainer>{children}</SectionContainer>
+        <StyledSectionContainer>{children}</StyledSectionContainer>
     )
 }
