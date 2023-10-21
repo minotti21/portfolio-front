@@ -1,7 +1,7 @@
 "use client"
 
 import { useContext, useEffect, useState } from "react";
-import { ColorsContainer, ModalContainer, StyledColorIcon, StyledError, StyledInput, StyledModal, StyledText, StyledTitle } from "./styles";
+import { ColorsContainer, ModalContainer, StyledColorIcon, StyledError, StyledInput, StyledModal, StyledSubText, StyledText, StyledTitle } from "./styles";
 import { colors } from "@/constants/colors";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { isEqual } from "lodash";
@@ -54,6 +54,7 @@ export default function InitialModal() {
             <StyledModal>
                 <StyledTitle>Calma aí!</StyledTitle>
                 <StyledText>Antes da gente começar, escolhe sua cor favorita: </StyledText>
+                <StyledSubText>Você poderá escolher outra depois :&#41;</StyledSubText>
                 <ColorsContainer>
                     {colors.map(color => <StyledColorIcon onClick={() => handleColorClick(color)} key={color} color={color} />)}
                 </ColorsContainer>
@@ -62,7 +63,7 @@ export default function InitialModal() {
                     <StyledInput type="text" maxLength={20} {...register("name", { pattern: /^[A-zÀ-ú]+$/i, required: true })} />
                     {errors.name?.type === 'required' && <StyledError>O campo é obrigatório!</StyledError>}
                     {errors.name?.type === 'pattern' && <StyledError>O campo deve conter apenas letras!</StyledError>}
-                    <Button text="Confirmar" type="submit" style={{ alignSelf: 'flex-end' }} />
+                    <Button text="Confirmar" type="submit" style={{ alignSelf: 'flex-end', marginTop: "0.5em" }} />
                 </form>
             </StyledModal>
         </ModalContainer>

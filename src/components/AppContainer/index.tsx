@@ -7,6 +7,7 @@ import Navbar from "../Navbar";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import Footer from "../Footer";
 import MainContainer from "../MainContainer";
+import InitialModal from "../InitialModal";
 
 export default function AppContainer({ children }: { children: ReactNode }) {
   const { theme } = useContext(UserThemeContext);
@@ -15,6 +16,7 @@ export default function AppContainer({ children }: { children: ReactNode }) {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <MainContainer>
+      <InitialModal />
         <Navbar />
         {children}
         <Footer />

@@ -1,5 +1,6 @@
 "use client";
 
+import SkeletonLoading from "@/components/SkeletonLoading";
 import About from "@/screens/About";
 import Contact from "@/screens/Contact";
 import Home from "@/screens/Home";

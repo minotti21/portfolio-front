@@ -1,13 +1,32 @@
+import { white } from "@/constants/colors";
 import rgbUtils from "@/utils/rgbUtils";
 import { styled } from "styled-components";
 
-export const NavbarPosition = styled.nav<{$showBorder: boolean}>`
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: ${({ theme }) => theme.backgroundColor};
-    border-bottom: ${({ $showBorder }) => $showBorder ? "1px solid rgb(230, 230, 230)" : "0px solid rgb(0, 0, 0, 0)"};
-    transition: 0.3s linear;
+export const NavbarPosition = styled.nav<{ $showBorder: boolean }>`
+    ${({ $showBorder, theme }) => {
+
+        let shadow = "";
+
+        if ($showBorder) {
+            if (theme.backgroundColor === white) {
+                shadow = "0px 2px 6px 1px rgba(0, 0, 0, 0.15)"
+            } else {
+                shadow = "0px 2px 6px 1px rgba(0, 0, 0, 0.75)"
+            }
+        }
+
+        return `position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: ${theme.backgroundColor};
+        -webkit-box-shadow: ${shadow};
+        -moz-box-shadow: ${shadow};
+        box-shadow: ${shadow}; 
+        transition: background-color 0.2s, box-shadow 0.4s, -webkit-box-shadow 0.4s, -moz-box-shadow 0.4s;
+        `
+    }}
+
+
 `
 
 export const NavbarContainer = styled.div`

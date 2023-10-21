@@ -3,8 +3,9 @@ import StyledComponentsRegistry from '@/lib/registry';
 import dynamic from 'next/dynamic';
 import { Poppins } from 'next/font/google';
 import AppContainer from '../components/AppContainer';
+import SkeletonLoading from '@/components/SkeletonLoading';
 
-const DynamicUserThemeProvider = dynamic(() => import('../context/UserThemeContext'), { ssr: false, loading: () => <h1>Carregando...</h1> });
+const DynamicUserThemeProvider = dynamic(() => import('../context/UserThemeContext'), { ssr: false, loading: () => <SkeletonLoading /> });
 
 const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700', '800', '900'], subsets: ['latin'] });
 

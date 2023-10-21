@@ -13,7 +13,6 @@ export default function Home() {
 
     return (
         <SectionContainer>
-            <InitialModal />
             <HomeContainer>
                 <TextContainer>
                     <StyledTitle>Olá {name}!</StyledTitle>

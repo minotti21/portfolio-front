@@ -12,13 +12,13 @@ export const HomeContainer = styled.div`
 export const StyledTitle = styled.h1`
     color: ${({ theme }) => theme.fontColor};
     font-weight: 600;
-    font-size: 2.4em;
+    font-size: 2.6em;
 `
 
 export const StyledText = styled.p`
-    margin-top: 1.5em;
     font-size: 1.6em;
     color: ${({ theme }) => theme.fontColor};
+    margin: 28px 0;
 `
 
 export const StyledSubtitle = styled.p`
@@ -32,7 +32,7 @@ export const TextContainer = styled.div`
 `
 
 export const StyledList = styled.ul`
-    margin: 1.5em 0;
+    margin-bottom: 28px;
 `
 
 export const StyledItemList = styled.li`

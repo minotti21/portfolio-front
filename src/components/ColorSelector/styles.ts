@@ -37,8 +37,9 @@ export const StyledColorSelector = styled.div<{ $showColors: boolean }>`
     -webkit-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
     -moz-box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
     box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.8);
+    pointer-events: ${({ $showColors }) => $showColors ? "auto" : "none"};
     opacity: ${({ $showColors }) => $showColors ? 1 : 0};
-    transition: 0.2s;
+    transition: 0.3s;
 
 `
 

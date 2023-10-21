@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import rgbUtils from "./rgbUtils";
+import { white } from "@/constants/colors";
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -20,19 +21,19 @@ export const GlobalStyle = createGlobalStyle`
 
         ::-webkit-scrollbar {
             width: 12px;
-            transition: 0.3s;
         }
 
         ::-webkit-scrollbar-track {
-            background: ${({ theme }) => theme.backgroundColor};
+            background: ${({ theme }) => theme.backgroundColor === white ? rgbUtils.darkenRGBColor(theme.backgroundColor, 28) : rgbUtils.lightenRGBColor(theme.backgroundColor, 28)};
         }
         
         ::-webkit-scrollbar-thumb {
             background: ${({ theme }) => theme.defaultColor};
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: ${({ theme }) => rgbUtils.darkenRGBColor(theme.defaultColor, 30)}
+            background-color: ${({ theme }) => rgbUtils.darkenRGBColor(theme.defaultColor, 30)};
         }
     }
 `;
