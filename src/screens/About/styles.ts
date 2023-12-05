@@ -15,7 +15,6 @@ export const StyledTitle = styled.h1`
 
 export const StyledText = styled.p`
     font-size: 1.5em;
-    font-weight: 400;
 `
 
 export const TextContainer = styled.div`

@@ -18,6 +18,7 @@ export const NavbarPosition = styled.nav<{ $showBorder: boolean }>`
         return `position: fixed;
         top: 0;
         width: 100%;
+        z-index: 1;
         background-color: ${theme.backgroundColor};
         -webkit-box-shadow: ${shadow};
         -moz-box-shadow: ${shadow};

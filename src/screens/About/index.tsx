@@ -26,12 +26,12 @@ export default function About() {
                 </TextAndImageContainer>
                 <TextAndImageContainer>
                     <StyledImage>
-                        <Image src="/setup.jpg" alt="escritório" fill={true} sizes="" style={{ borderRadius: 12 }} quality={100} />
+                        {/* <Image src="/yi.jpg" alt="escritório" fill={true} sizes="" style={{ borderRadius: 12 }} quality={100} />
                         <IconsContainer>
-                            <Image src="/sap.svg" width={50} height={50} alt="icon" />
-                            <Image src="/excel.svg" width={50} height={50} alt="icon" />
+                            <Image src="/lol.svg" width={50} height={50} alt="icon" />
+                            <Image src="/mask.png" width={50} height={50} alt="icon" />
                             <Image src="/word.svg" width={50} height={50} alt="icon" />
-                        </IconsContainer>
+                        </IconsContainer> */}
                     </StyledImage>
                     <TextContainer>
                         <StyledText>Então a pandemia entrou em nossas vidas! Após dois meses em casa jogando, alcancei um dos ranks mais altos do Brasil no jogo League of Legends, chegou o momento de eu tentar algo diferente, saí da Lupo e me dediquei totalmente a ser jogador profissional.</StyledText>
@@ -46,6 +46,7 @@ export default function About() {
                         <StyledSkillsText>Hard Skills: SAP, Excel e Word</StyledSkillsText>
                     </TextContainer>
                 </TextAndImageContainer>
+                <StyledText style={{ textAlign: 'center' }} >Então cheguei onde estou, atualmente atuo como desenvolvedor front, back e também mobile. Para chegar aqui, bastou me dedicar e trilhar meu caminho, se eu consegui, você também pode.</StyledText>
             </AboutContainer>
         </SectionContainer>
     );
