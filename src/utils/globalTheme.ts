@@ -10,13 +10,15 @@ export const GlobalStyle = createGlobalStyle`
         
         ::-moz-selection {
             color: ${({ theme }) => theme.backgroundColor};
-            background: ${({ theme }) => rgbUtils.lightenRGBColor(theme.defaultColor, 20)};
+            background: ${({ theme }) =>
+              rgbUtils.lightenRGBColor(theme.defaultColor, 20)};
         }
 
 
         ::selection {
             color: ${({ theme }) => theme.backgroundColor};
-            background: ${({ theme }) => rgbUtils.lightenRGBColor(theme.defaultColor, 20)};
+            background: ${({ theme }) =>
+              rgbUtils.lightenRGBColor(theme.defaultColor, 20)};
         }
 
         ::-webkit-scrollbar {
@@ -24,7 +26,10 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         ::-webkit-scrollbar-track {
-            background: ${({ theme }) => theme.backgroundColor === white ? rgbUtils.darkenRGBColor(theme.backgroundColor, 28) : rgbUtils.lightenRGBColor(theme.backgroundColor, 28)};
+            background: ${({ theme }) =>
+              theme.backgroundColor === white
+                ? rgbUtils.darkenRGBColor(theme.backgroundColor, 28)
+                : rgbUtils.lightenRGBColor(theme.backgroundColor, 28)};
         }
         
         ::-webkit-scrollbar-thumb {
@@ -33,7 +38,8 @@ export const GlobalStyle = createGlobalStyle`
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background-color: ${({ theme }) => rgbUtils.darkenRGBColor(theme.defaultColor, 30)};
+            background-color: ${({ theme }) =>
+              rgbUtils.darkenRGBColor(theme.defaultColor, 30)};
         }
     }
 `;

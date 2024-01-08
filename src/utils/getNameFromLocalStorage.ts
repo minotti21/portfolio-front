@@ -1,13 +1,13 @@
 const getNameFromLocalStorage = () => {
-    if (typeof localStorage === 'undefined') return;
+  if (typeof localStorage === "undefined") return;
 
-    const storedName = localStorage.getItem('name');
+  const storedName = localStorage.getItem("name");
 
-    if (storedName === null) {
-        return "";
-    }
+  if (storedName === null) {
+    return "";
+  }
 
-    return storedName;
-}
+  return storedName;
+};
 
 export default getNameFromLocalStorage;

@@ -1,21 +1,21 @@
 import { black, colors, white } from "../constants/colors";
 
 const getThemeFromLocalStorage = () => {
-    const storedTheme = localStorage.getItem('theme');
+  const storedTheme = localStorage.getItem("theme");
 
-    if (storedTheme === null) {
-        const theme = {
-            defaultColor: colors[0],
-            backgroundColor: black,
-            fontColor: white,
-        }
+  if (storedTheme === null) {
+    const theme = {
+      defaultColor: colors[0],
+      backgroundColor: black,
+      fontColor: white,
+    };
 
-        localStorage.setItem('theme', JSON.stringify(theme));
+    localStorage.setItem("theme", JSON.stringify(theme));
 
-        return theme;
-    }
+    return theme;
+  }
 
-    return JSON.parse(storedTheme);
-}
+  return JSON.parse(storedTheme);
+};
 
 export default getThemeFromLocalStorage;

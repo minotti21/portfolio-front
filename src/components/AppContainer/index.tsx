@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ReactNode, useContext } from "react";
 import { GlobalStyle } from "@/utils/globalTheme";
@@ -16,11 +16,11 @@ export default function AppContainer({ children }: { children: ReactNode }) {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <MainContainer>
-      <InitialModal />
+        <InitialModal />
         <Navbar />
         {children}
         <Footer />
       </MainContainer>
     </ThemeProvider>
-  )
+  );
 }
