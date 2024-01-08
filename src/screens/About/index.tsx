@@ -39,68 +39,69 @@ function TechnologyInfo({ title, paragraph1, paragraph2 }: TechnologyInfoProps) 
 
 export default function About() {
   const [currentSkill, setCurrentSkill] = useState("");
+  const tecnologyInfo = "Passe o mouse sob as tecnologias acima 👆";
 
-  let tecnologyInfo = <TechnologyInfoSpan>Passe o mouse sob as tecnologias acima 👆</TechnologyInfoSpan>;
+  let technologyText = <TechnologyInfoSpan>{tecnologyInfo}</TechnologyInfoSpan>;
 
   switch (currentSkill) {
     case "html": {
-      tecnologyInfo = <TechnologyInfo title="HTML" paragraph1="A primeira linguagem da tríade do front-end, porém, não se trata de uma linguagem de programação e sim de marcação, contém toda a semântica de um site e pode se dizer que é também seu esqueleto." paragraph2="HTML significa HyperText Markup Language (Linguagem de Marcação de Hipertexto em portguês) e foi criado em uma organização europeia de pesquisa nuclear para facilitar o compartilhamento de documentos feitos no computador." />;
+      technologyText = <TechnologyInfo title="HTML" paragraph1="A primeira linguagem da tríade do front-end, porém, não se trata de uma linguagem de programação e sim de marcação, contém toda a semântica de um site e pode se dizer que é também seu esqueleto." paragraph2="HTML significa HyperText Markup Language (Linguagem de Marcação de Hipertexto em portguês) e foi criado em uma organização europeia de pesquisa nuclear para facilitar o compartilhamento de documentos feitos no computador." />;
       break;
     }
     case "css": {
-      tecnologyInfo = <TechnologyInfo title="CSS" paragraph1="A segunda linguagem da tríade do front-end, esse aqui é uma linguagem de estilo, com ela podemos dar cor ao nosso HTML e também posicionar elementos de forma mais simples." paragraph2="CSS significa Cascading Style Sheets (Folha de Estilo em Cascatas em português) e permitiu que os desenvolvedores separassem o arquivos de estilo e texto, trazendo maior escalabilidade para os projetos." />;
+      technologyText = <TechnologyInfo title="CSS" paragraph1="A segunda linguagem da tríade do front-end, esse aqui é uma linguagem de estilo, com ela podemos dar cor ao nosso HTML e também posicionar elementos de forma mais simples." paragraph2="CSS significa Cascading Style Sheets (Folha de Estilo em Cascatas em português) e permitiu que os desenvolvedores separassem o arquivos de estilo e texto, trazendo maior escalabilidade para os projetos." />;
       break;
     }
     case "sass": {
-      tecnologyInfo = <TechnologyInfo title="SASS" paragraph1="Um pré-processador para o CSS, nos fornece uma sintaxe mais simplificada, permitindo escrever o mesmo código com menos linhas e fornecendo recursos muito úteis e inovadores." paragraph2="SASS significa Syntactically Awesome Stylesheets (Folhas de Estilo Incrivelmente Sintáticas em português), como o navegador fornece suporte ao SASS, ele é transpilado para o CSS no momento que o projeto é buildado." />;
+      technologyText = <TechnologyInfo title="SASS" paragraph1="Um pré-processador para o CSS, nos fornece uma sintaxe mais simplificada, permitindo escrever o mesmo código com menos linhas e fornecendo recursos muito úteis e inovadores." paragraph2="SASS significa Syntactically Awesome Stylesheets (Folhas de Estilo Incrivelmente Sintáticas em português), como o navegador fornece suporte ao SASS, ele é transpilado para o CSS no momento que o projeto é buildado." />;
       break;
     }
     case "tailwind": {
-      tecnologyInfo = <TechnologyInfo title="Tailwind" paragraph1="Um framework que utiliza o conceito de Atomic CSS, tem uma grande lista de classes pré definidas que são uma abreviação das propriedades do CSS, podendo ser reutilizadas." paragraph2="Diferente de frameworks como Booststrap, é altamente flexível, podendo ser configurado manualmente. Na hora de buildar o projeto para produção, remove todas as classes não utilizadas, reduzindo o tamanho do arquivo final." />;
+      technologyText = <TechnologyInfo title="Tailwind" paragraph1="Um framework que utiliza o conceito de Atomic CSS, tem uma grande lista de classes pré definidas que são uma abreviação das propriedades do CSS, podendo ser reutilizadas." paragraph2="Diferente de frameworks como Booststrap, é altamente flexível, podendo ser personalizado do seu jeito. Na hora de buildar o projeto para produção, remove todas as classes não utilizadas, reduzindo o tamanho do arquivo final." />;
       break;
     }
     case "styled": {
-      tecnologyInfo = <TechnologyInfo title="Styled Components" paragraph1="Uma tecnologia que nos permite estilizar no nível de componente, traz grande flexibilidade e facilidade na hora da implementação e manutenção do código (esse portfólio está sendo codado com ele 😅)" paragraph2="Foi criada com foco no React, com a intenção de inovar e solucionar limitações para a estilização de componentes." />;
+      technologyText = <TechnologyInfo title="Styled Components" paragraph1="Uma tecnologia que nos permite estilizar no nível de componente, traz grande flexibilidade e facilidade na hora da implementação e manutenção do código (esse portfólio está sendo codado com ele 😅)" paragraph2="Foi criado com foco no React, com a intenção de inovar e solucionar algumas limitações que eram comuns na hora de estilizar um componente." />;
       break;
     }
     case "javascript": {
-      tecnologyInfo = <TechnologyInfo title="Javascript" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Javascript" paragraph1="A terceira e última linguagem da tríade do front-end, uma linguagem de programação interpretada que trouxe grande dinamismo para os sites e foi crescendo exponencialmente com o passar do tempo." paragraph2='Foi desenvolvida em apenas 10 dias, leva "Java" em seu nome para surfar no hype da linguagem de programação "Java" e hoje, pode ser utilizado para desenvolvimento de sites, APIs, aplicativos móveis, aplicações desktop, machine learning, internet das coisas, etc.' />;
       break;
     }
     case "react": {
-      tecnologyInfo = <TechnologyInfo title="React" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="React" paragraph1="" paragraph2="" />;
       break;
     }
     case "redux": {
-      tecnologyInfo = <TechnologyInfo title="Redux" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Redux" paragraph1="" paragraph2="" />;
       break;
     }
     case "next": {
-      tecnologyInfo = <TechnologyInfo title="Next" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Next" paragraph1="" paragraph2="" />;
       break;
     }
     case "node": {
-      tecnologyInfo = <TechnologyInfo title="Node" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Node" paragraph1="" paragraph2="" />;
       break;
     }
     case "java": {
-      tecnologyInfo = <TechnologyInfo title="Java" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Java" paragraph1="" paragraph2="" />;
       break;
     }
     case "android": {
-      tecnologyInfo = <TechnologyInfo title="Android" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Android" paragraph1="" paragraph2="" />;
       break;
     }
     case "database": {
-      tecnologyInfo = <TechnologyInfo title="Banco de Dados" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Banco de Dados" paragraph1="" paragraph2="" />;
       break;
     }
     case "git": {
-      tecnologyInfo = <TechnologyInfo title="Git" paragraph1="" paragraph2="" />;
+      technologyText = <TechnologyInfo title="Git" paragraph1="" paragraph2="" />;
       break;
     }
     default: {
-      tecnologyInfo = <TechnologyInfoSpan>Passe o mouse sob as tecnologias acima 👆</TechnologyInfoSpan>;;
+      technologyText = <TechnologyInfoSpan>{tecnologyInfo}</TechnologyInfoSpan>;;
     }
   }
 
@@ -327,7 +328,7 @@ export default function About() {
         </Technologies>
 
         <TechnologyInfoContainer>
-          {tecnologyInfo}
+          {technologyText}
         </TechnologyInfoContainer>
 
       </AboutContainer>

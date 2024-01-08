@@ -22,7 +22,7 @@ export const NavbarPosition = styled.nav<{ $showBorder: boolean }>`
         -moz-box-shadow: ${shadow};
         box-shadow: ${shadow}; 
         transition: background-color 0.2s, box-shadow 0.4s, -webkit-box-shadow 0.4s, -moz-box-shadow 0.4s;
-        z-index: 111;
+        z-index: 1;
         `;
   }}
 `;
