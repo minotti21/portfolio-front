@@ -63,7 +63,7 @@ export const IconsContainer = styled.div`
 export const Technologies = styled.div`
   display: grid;
   row-gap: 4em;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   justify-items: center;
   grid-template-rows: 1fr 1fr;
   width: 100%;
@@ -94,7 +94,7 @@ export const TechnologyInfoContainer = styled.div`
   align-items: center;
   width: 100%;
   gap: 1em;
-  height: 300px;
+  height: 333px;
 `;
 
 export const TechnologyInfoTitle = styled.h2`
@@ -105,6 +105,12 @@ export const TechnologyInfoTitle = styled.h2`
 export const TechnologyInfoText = styled.p`
   font-size: 1.3em;
   font-weight: 300;
+  text-align: center;
+`;
+
+export const ExperienceText = styled.p`
+  font-size: 1.6em;
+  font-weight: 600;
   text-align: center;
 `;
 
