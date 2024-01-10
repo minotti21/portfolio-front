@@ -34,7 +34,7 @@ export default function About() {
         <>
           <TechnologyInfoTitle>HTML</TechnologyInfoTitle>
           <TechnologyInfoText>
-            A primeira linguagem da tríade do front-end, porém, não se trata de
+            A primeira linguagem da tríade front-end, porém, não se trata de
             uma linguagem de programação e sim de marcação, contém toda a
             semântica de um site e pode se dizer que é também seu esqueleto.
           </TechnologyInfoText>
@@ -76,8 +76,7 @@ export default function About() {
           <TechnologyInfoTitle>SASS</TechnologyInfoTitle>
           <TechnologyInfoText>
             Um pré-processador para o CSS, nos fornece uma sintaxe mais
-            simplificada, permitindo escrever o mesmo código com menos linhas e
-            fornecendo recursos muito úteis e inovadores.
+            simplificada, permitindo escrever o mesmo código com menos linhas fornecendo recursos muito úteis e inovadores.
           </TechnologyInfoText>
           <TechnologyInfoText>
             SASS significa Syntactically Awesome Stylesheets (Folhas de Estilo
@@ -101,7 +100,7 @@ export default function About() {
             propriedades do CSS, podendo ser reutilizadas.
           </TechnologyInfoText>
           <TechnologyInfoText>
-            Diferente de frameworks como Booststrap, é altamente flexível,
+            Diferente de grande parte dos frameworks, é altamente flexível,
             podendo ser personalizado do seu jeito. Na hora de buildar o projeto
             para produção, remove todas as classes não utilizadas, reduzindo o
             tamanho do arquivo final.
@@ -117,14 +116,14 @@ export default function About() {
         <>
           <TechnologyInfoTitle>Styled Components</TechnologyInfoTitle>
           <TechnologyInfoText>
-            Uma tecnologia que nos permite estilizar no nível de componente,
+            Uma tecnologia que nos permite estilizar a nível de componente,
             traz grande flexibilidade e facilidade na hora da implementação e
             manutenção do código (esse portfólio está sendo codado com ele 😅)
           </TechnologyInfoText>
           <TechnologyInfoText>
             Foi criado com foco no React, com a intenção de inovar e solucionar
             algumas limitações que eram comuns na hora de estilizar um
-            componente.
+            componente, é bem útil em projetos que necessitam de lógica nos estilos.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
         </>
@@ -157,10 +156,10 @@ export default function About() {
         <>
           <TechnologyInfoTitle>TypeScript</TechnologyInfoTitle>
           <TechnologyInfoText>
-            Foi desenvolvido pela Microsoft com o intuito de solucionar todos os problemas que o JavaScript puro tem, o maior deles, claro: sua tipagem fraca. É essencial para detectar erros durante o desenvolvimento e escalar os projetos.
+            Foi desenvolvido pela Microsoft com o intuito de solucionar todos os problemas que o JavaScript puro tem, o maior deles, claro: sua tipagem fraca. É essencial para detectar erros durante o desenvolvimento e escalar projetos.
           </TechnologyInfoText>
           <TechnologyInfoText>
-            O framework Angular (desenvolvido pela Google) utiliza o TypeScript por padrão. Ele traz também alguns recursos para orientação a objeto, ótimo para manter o código organizado sem a utilização de frameworks.
+            O framework Angular (desenvolvido pela Google) utiliza o TypeScript por padrão. Traz também alguns recursos para orientação a objeto, ótimo para manter o código organizado sem a utilização de frameworks.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
         </>
@@ -175,10 +174,10 @@ export default function About() {
           <TechnologyInfoText>
             A biblioteca queridinha dos programadores front-end, segue a
             categoria de SPA (Single Page Application), é orientada a
-            componentes e foi desenvolvida pelo time do Facebook para gerenciar melhor o estado e o reaproveitamento de código.
+            componentes e foi desenvolvida pelo time do Facebook para gerenciar melhor o estado e o reaproveitamento de código da aplicação.
           </TechnologyInfoText>
           <TechnologyInfoText>
-            Além de todos seus benefícios, há também o React Native para desenvolvimento de aplicativos móveis, atualmente trabalho utilizando ele e particularmente, sou um grande estusiasta das duas tecnologias.
+            Além de todos benefícios, há também o React Native para desenvolvimento de aplicativos móveis, trabalho utilizando ele e particularmente, sou um grande estusiasta das duas tecnologias.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
@@ -191,7 +190,7 @@ export default function About() {
         <>
           <TechnologyInfoTitle>Redux</TechnologyInfoTitle>
           <TechnologyInfoText>
-            Essa biblioteca foi feita para gerenciamento de estados complexos no React (pois os recusors oferecidos não eram suficientes para grandes projetos) e acabou ganhando grande popularidade entre os desenvolvedores.
+            Biblioteca feita para gerenciamento de estados complexos no React (pois os recusors oferecidos não eram suficientes para grandes projetos) e acabou ganhando grande popularidade entre os desenvolvedores.
           </TechnologyInfoText>
           <TechnologyInfoText>
             Torna o gerenciamento de estado global mais robusto e previsível, segue o padrão de arquitetura Flux. Nos últimos tempos acabou perdendo um pouco de força por conta da poderosa combinação de hooks useContext e
@@ -208,7 +207,7 @@ export default function About() {
         <>
           <TechnologyInfoTitle>Next</TechnologyInfoTitle>
           <TechnologyInfoText>
-            Next é um framework para o React, foi desenvolvido com o intuito de facilitar e melhorar funcionalidades já existentes, lidar com rotas no Next é mais fácil
+            Next é um framework para o React, foi desenvolvido com o intuito de facilitar e melhorar funcionalidades já existentes, lidar com rotas é mais simples, tem suporte a renderização do lado do servidor e pré renderização estática.
           </TechnologyInfoText>
           <TechnologyInfoText>
             Foi desenvolvida em apenas 10 dias, levou "Java" em seu nome para
