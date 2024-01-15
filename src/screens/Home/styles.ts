@@ -6,19 +6,18 @@ export const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const StyledTitle = styled.h1`
   color: ${({ theme }) => theme.fontColor};
   font-weight: 600;
   font-size: 2.6em;
+  line-height: 1.25em;
 `;
 
 export const StyledText = styled.p`
   font-size: 1.6em;
   color: ${({ theme }) => theme.fontColor};
-  margin: 28px 0;
 `;
 
 export const StyledSubtitle = styled.p`
@@ -28,11 +27,26 @@ export const StyledSubtitle = styled.p`
 `;
 
 export const TextContainer = styled.div`
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4em;
 `;
 
-export const StyledList = styled.ul`
-  margin-bottom: 28px;
+export const TitleContainer = styled.div``;
+
+export const StyledList = styled.ul``;
+
+export const StyledName = styled.span`
+  background-color: ${({ theme }) => theme.defaultColor};
+  color: #fff;
+  padding: 0 0.1em;
+  margin-right: 0.2em;
+  display: inline-block;
+  text-shadow:
+    -1px 1px 1px rgb(0, 0, 0),
+    -1px 1px 1px rgb(0, 0, 0);
+  transform: rotate(-5deg);
+  border-radius: 4px;
 `;
 
 export const StyledItemList = styled.li`

@@ -9,4 +9,4 @@ export const colors = [
 
 export const white = "rgb(248, 250, 252)";
 
-export const black = "rgb(17, 17, 17)";
+export const black = "rgb(14, 14, 14)";

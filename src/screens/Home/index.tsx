@@ -8,9 +8,11 @@ import {
   HomeContainer,
   StyledItemList,
   StyledList,
+  StyledName,
   StyledText,
   StyledTitle,
   TextContainer,
+  TitleContainer,
 } from "./styles";
 import Button from "@/components/Button";
 
@@ -21,9 +23,13 @@ export default function Home() {
     <SectionContainer>
       <HomeContainer>
         <TextContainer>
-          <StyledTitle>Olá {name}!</StyledTitle>
-          <StyledTitle>Seja muito bem-vindo(a)</StyledTitle>
-          <StyledTitle>ao meu portfólio! 😄</StyledTitle>
+          <TitleContainer>
+            <StyledTitle>
+              Olá <StyledName>{name}</StyledName>!
+            </StyledTitle>
+            <StyledTitle>Seja muito bem-vindo(a)</StyledTitle>
+            <StyledTitle>ao meu portfólio! 😄</StyledTitle>
+          </TitleContainer>
           <StyledText>Aqui você vai encontrar:</StyledText>
           <StyledList>
             <StyledItemList>Um pouco sobre mim</StyledItemList>
@@ -33,7 +39,6 @@ export default function Home() {
           </StyledList>
           <Button text="Conhecer" />
         </TextContainer>
-        {/* <StyledSvgBlob src="/blob.svg" /> */}
       </HomeContainer>
     </SectionContainer>
   );

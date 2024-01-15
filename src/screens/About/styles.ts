@@ -79,7 +79,6 @@ export const StyledMiddleText = styled.p`
 
 export const StyledTechnologyImage = styled(Image)`
   transition: 0.3s;
-  cursor: pointer;
   opacity: 0.4;
 
   &:hover {

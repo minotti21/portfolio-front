@@ -8,6 +8,7 @@ import { UserThemeContext } from "@/context/UserThemeContext";
 import Footer from "../Footer";
 import MainContainer from "../MainContainer";
 import InitialModal from "../InitialModal";
+import ArrowUp from "../ArrowUp";
 
 export default function AppContainer({ children }: { children: ReactNode }) {
   const { theme } = useContext(UserThemeContext);
@@ -16,6 +17,7 @@ export default function AppContainer({ children }: { children: ReactNode }) {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <MainContainer>
+        <ArrowUp />
         <InitialModal />
         <Navbar />
         {children}
