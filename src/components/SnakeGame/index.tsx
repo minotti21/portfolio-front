@@ -1,43 +1,73 @@
-import { KeyboardEvent, useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Canvas from "../Canvas";
 import { useTheme } from "styled-components";
-import apple from "/apple.png";
+import { GameStates, SnakeDirections } from "./enums";
+import Button from "../Button";
+import {
+  StyledGameScreen,
+  StyledScore,
+  StyledSnakeGame,
+  StyledTips,
+  StyledTipsTitle,
+  StyledTitle,
+} from "./style";
 
-const generateNewApplePosition = () => {
-  return {
-    x: Math.floor(Math.random() * 50) * 10,
-    y: Math.floor(Math.random() * 50) * 10,
+const generateNewApplePosition = (
+  snakePosition: { x: number; y: number }[],
+) => {
+  let position = {
+    x: Math.floor(Math.random() * 45) * 20,
+    y: Math.floor(Math.random() * 20) * 20,
   };
+
+  while (
+    snakePosition.some(({ x, y }) => {
+      return x == position.x && y == position.y;
+    })
+  ) {
+    position = {
+      x: Math.floor(Math.random() * 45) * 20,
+      y: Math.floor(Math.random() * 20) * 20,
+    };
+  }
+
+  return position;
 };
 
 export default function SnakeGame() {
-  const [gameRunning, setGameRunning] = useState(false);
-  const [gameOver, setGameOver] = useState(false);
+  const [gameState, setGameState] = useState<GameStates>(GameStates.Unstarted);
   const [score, setScore] = useState(0);
-  const [snakePosition, setSnakePosition] = useState([{ x: 250, y: 250 }]);
-  const [snakeDirection, setSnakeDirection] = useState<
-    "right" | "left" | "up" | "down"
-  >("right");
-  const [snakeAcceleration, setSnakeAcceleration] = useState(10);
-  const [applePosition, setApplePosition] = useState(
-    generateNewApplePosition(),
+  const [snakePosition, setSnakePosition] = useState([{ x: 460, y: 200 }]);
+  const [snakeDirection, setSnakeDirection] = useState<SnakeDirections>(
+    SnakeDirections.Right,
   );
+  const [applePosition, setApplePosition] = useState(
+    generateNewApplePosition(snakePosition),
+  );
+
+  useEffect(() => {
+    if (gameState == GameStates.Running) {
+      document.addEventListener("keydown", switchDirection);
+    }
+
+    return () => document.removeEventListener("keydown", switchDirection);
+  }, [snakeDirection, gameState]);
 
   const theme = useTheme();
 
-  const moveSnake = (direction: string) => {
+  const moveSnake = (direction: SnakeDirections) => {
     switch (direction) {
-      case "right": {
+      case SnakeDirections.Right: {
         const newSnakePosition = snakePosition;
 
-        if (snakePosition[0].x == 490) {
+        if (snakePosition[0].x >= 880) {
           newSnakePosition.unshift({
             x: 0,
             y: snakePosition[0].y,
           });
         } else {
           newSnakePosition.unshift({
-            x: snakePosition[0].x + 10,
+            x: snakePosition[0].x + 20,
             y: snakePosition[0].y,
           });
         }
@@ -48,17 +78,17 @@ export default function SnakeGame() {
 
         break;
       }
-      case "left": {
+      case SnakeDirections.Left: {
         const newSnakePosition = snakePosition;
 
-        if (snakePosition[0].x == 0) {
+        if (snakePosition[0].x <= 0) {
           newSnakePosition.unshift({
-            x: 500,
+            x: 900,
             y: snakePosition[0].y,
           });
         } else {
           newSnakePosition.unshift({
-            x: snakePosition[0].x - 10,
+            x: snakePosition[0].x - 20,
             y: snakePosition[0].y,
           });
         }
@@ -69,17 +99,17 @@ export default function SnakeGame() {
 
         break;
       }
-      case "up": {
+      case SnakeDirections.Up: {
         const newSnakePosition = snakePosition;
 
-        if (snakePosition[0].y == 0) {
+        if (snakePosition[0].y <= 0) {
           newSnakePosition.unshift({
-            y: 500,
+            y: 400,
             x: snakePosition[0].x,
           });
         } else {
           newSnakePosition.unshift({
-            y: snakePosition[0].y - 10,
+            y: snakePosition[0].y - 20,
             x: snakePosition[0].x,
           });
         }
@@ -90,17 +120,17 @@ export default function SnakeGame() {
 
         break;
       }
-      case "down": {
+      case SnakeDirections.Down: {
         const newSnakePosition = snakePosition;
 
-        if (snakePosition[0].y == 490) {
+        if (snakePosition[0].y >= 380) {
           newSnakePosition.unshift({
             y: 0,
             x: snakePosition[0].x,
           });
         } else {
           newSnakePosition.unshift({
-            y: snakePosition[0].y + 10,
+            y: snakePosition[0].y + 20,
             x: snakePosition[0].x,
           });
         }
@@ -122,19 +152,19 @@ export default function SnakeGame() {
     });
 
     if (headOnBody) {
-      setGameRunning(false);
+      setGameState(GameStates.Over);
     }
   };
 
   const checkAppleGrab = (
-    snakePosition: { x: number; y: number },
+    snakePosition: { x: number; y: number }[],
     applePosition: { x: number; y: number },
   ) => {
     if (
-      snakePosition.x == applePosition.x &&
-      snakePosition.y == applePosition.y
+      snakePosition[0].x == applePosition.x &&
+      snakePosition[0].y == applePosition.y
     ) {
-      setApplePosition(generateNewApplePosition());
+      setApplePosition(generateNewApplePosition(snakePosition));
       feedSnake();
       setScore(score + 10);
     }
@@ -142,40 +172,56 @@ export default function SnakeGame() {
 
   const feedSnake = () => {
     switch (snakeDirection) {
-      case "right": {
+      case SnakeDirections.Right: {
         setSnakePosition((prevPosition) => {
+          if (prevPosition[0].x == 880) {
+            return [{ x: 0, y: prevPosition[0].y }, ...prevPosition];
+          }
+
           return [
-            { x: prevPosition[0].x + 10, y: prevPosition[0].y },
+            { x: prevPosition[0].x + 20, y: prevPosition[0].y },
             ...prevPosition,
           ];
         });
 
         break;
       }
-      case "left": {
+      case SnakeDirections.Left: {
         setSnakePosition((prevPosition) => {
+          if (prevPosition[0].x == 0) {
+            return [{ x: 900, y: prevPosition[0].y }, ...prevPosition];
+          }
+
           return [
-            { x: prevPosition[0].x - 10, y: prevPosition[0].y },
+            { x: prevPosition[0].x - 20, y: prevPosition[0].y },
             ...prevPosition,
           ];
         });
 
         break;
       }
-      case "up": {
+      case SnakeDirections.Up: {
         setSnakePosition((prevPosition) => {
+          if (prevPosition[0].y == 0) {
+            return [{ y: 400, x: prevPosition[0].x }, ...prevPosition];
+          }
+
           return [
-            { y: prevPosition[0].y - 10, x: prevPosition[0].x },
+            { y: prevPosition[0].y - 20, x: prevPosition[0].x },
             ...prevPosition,
           ];
         });
 
         break;
       }
-      case "down": {
+      case SnakeDirections.Down: {
         setSnakePosition((prevPosition) => {
+          if (prevPosition[0].y == 380) {
+            return [{ y: 0, x: prevPosition[0].x }, ...prevPosition];
+          }
+
           return [
-            { y: prevPosition[0].y + 10, x: prevPosition[0].x },
+            { y: prevPosition[0].y + 20, x: prevPosition[0].x },
             ...prevPosition,
           ];
         });
@@ -185,14 +231,14 @@ export default function SnakeGame() {
     }
   };
 
-  const switchDirection = (e: KeyboardEvent) => {
+  const switchDirection = (e: any) => {
     e.preventDefault();
 
     if (
-      snakePosition[0].x == 500 ||
-      snakePosition[0].x == -10 ||
-      snakePosition[0].y == 500 ||
-      snakePosition[0].y == -10
+      snakePosition[0].x >= 900 ||
+      snakePosition[0].x < 0 ||
+      snakePosition[0].y >= 400 ||
+      snakePosition[0].y < 0
     ) {
       return;
     }
@@ -200,40 +246,56 @@ export default function SnakeGame() {
     switch (e.code) {
       case "ArrowRight":
       case "KeyD": {
-        if (snakeDirection != "left") {
-          setSnakeDirection("right");
-        } else if (snakePosition.length == 1) {
-          setSnakeDirection("right");
+        if (snakeDirection != SnakeDirections.Left) {
+          setSnakeDirection(SnakeDirections.Right);
+          return;
+        }
+
+        if (snakePosition.length == 1) {
+          setSnakeDirection(SnakeDirections.Right);
+          return;
         }
 
         break;
       }
       case "ArrowLeft":
       case "KeyA": {
-        if (snakeDirection != "right") {
-          setSnakeDirection("left");
-        } else if (snakePosition.length == 1) {
-          setSnakeDirection("left");
+        if (snakeDirection != SnakeDirections.Right) {
+          setSnakeDirection(SnakeDirections.Left);
+          return;
+        }
+
+        if (snakePosition.length == 1) {
+          setSnakeDirection(SnakeDirections.Left);
+          return;
         }
 
         break;
       }
       case "ArrowUp":
       case "KeyW": {
-        if (snakeDirection != "down") {
-          setSnakeDirection("up");
-        } else if (snakePosition.length == 1) {
-          setSnakeDirection("up");
+        if (snakeDirection != SnakeDirections.Down) {
+          setSnakeDirection(SnakeDirections.Up);
+          return;
+        }
+
+        if (snakePosition.length == 1) {
+          setSnakeDirection(SnakeDirections.Up);
+          return;
         }
 
         break;
       }
       case "ArrowDown":
       case "KeyS": {
-        if (snakeDirection != "up") {
-          setSnakeDirection("down");
-        } else if (snakePosition.length == 1) {
-          setSnakeDirection("down");
+        if (snakeDirection != SnakeDirections.Up) {
+          setSnakeDirection(SnakeDirections.Down);
+          return;
+        }
+
+        if (snakePosition.length == 1) {
+          setSnakeDirection(SnakeDirections.Down);
+          return;
         }
 
         break;
@@ -243,49 +305,85 @@ export default function SnakeGame() {
 
   const draw = useCallback(
     (ctx: CanvasRenderingContext2D, frameCount: number) => {
-      ctx.clearRect(0, 0, 500, 500);
+      ctx.clearRect(0, 0, 900, 400);
 
-      if (frameCount % 3 == 0) {
-        moveSnake(snakeDirection);
-        checkLose(snakePosition[0]);
-        checkAppleGrab(snakePosition[0], applePosition);
+      for (let i = 0; i < 45; i++) {
+        for (let j = 0; j < 20; j++) {
+          if ((i + j) % 2 === 0) {
+            ctx.fillStyle = "#f5f5f5";
+          } else {
+            ctx.fillStyle = "#fff";
+          }
+
+          ctx.beginPath();
+          ctx.roundRect(i * 20, j * 20, 20, 20, 2);
+          ctx.fill();
+        }
       }
 
-      ctx.fillStyle = "#333";
-      snakePosition.forEach(({ x, y }) => {
-        ctx.fillRect(x, y, 10, 10);
+      if (frameCount % 6 == 0) {
+        moveSnake(snakeDirection);
+        checkLose(snakePosition[0]);
+        checkAppleGrab(snakePosition, applePosition);
+      }
+
+      ctx.fillStyle = "#065c00";
+      snakePosition.forEach(({ x, y }, i) => {
+        ctx.beginPath();
+        ctx.roundRect(x, y, 20, 20, 2);
+        ctx.fill();
       });
 
       if (theme) ctx.fillStyle = theme.defaultColor;
       ctx.beginPath();
-      ctx.roundRect(applePosition.x, applePosition.y, 10, 10, 8);
+      ctx.roundRect(applePosition.x, applePosition.y, 20, 20, 2);
       ctx.fill();
     },
     [snakePosition, snakeDirection],
   );
 
   const startGame = () => {
-    setGameRunning(true);
+    setGameState(GameStates.Running);
     setScore(0);
-    setSnakePosition([{ x: 250, y: 250 }]);
-    setApplePosition(generateNewApplePosition());
-    setGameOver(false);
+    setSnakePosition([{ x: 460, y: 200 }]);
+    setApplePosition(generateNewApplePosition(snakePosition));
   };
 
-  if (!gameRunning) {
-    return <button onClick={startGame}>Começar o jogo</button>;
+  let gameComponent = (
+    <StyledGameScreen>
+      <StyledTipsTitle>Como jogar?</StyledTipsTitle>
+      <StyledTips>
+        Utilize as setinhas do teclado ou as teclas W A S D para movimentar a
+        cobrinha
+      </StyledTips>
+      <Button text="Jogar" onClick={() => startGame()} />
+    </StyledGameScreen>
+  );
+
+  if (gameState == GameStates.Running) {
+    gameComponent = (
+      <>
+        <Canvas draw={draw} tabIndex={0} width={900} height={400} />
+      </>
+    );
+  }
+
+  if (gameState == GameStates.Over) {
+    gameComponent = (
+      <>
+        <StyledGameScreen>
+          <StyledTipsTitle>Você fez {score} pontos!</StyledTipsTitle>
+          <StyledTips>Deseja jogar novamente?</StyledTips>
+          <Button text="Jogar" onClick={() => startGame()} />
+        </StyledGameScreen>
+      </>
+    );
   }
 
   return (
-    <div>
-      <h1>{score}</h1>
-      <Canvas
-        draw={draw}
-        tabIndex={0}
-        onKeyDown={switchDirection}
-        width={500}
-        height={500}
-      />
-    </div>
+    <StyledSnakeGame>
+      <StyledTitle>Snake Game</StyledTitle>
+      {gameComponent}
+    </StyledSnakeGame>
   );
 }

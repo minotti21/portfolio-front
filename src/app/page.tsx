@@ -9,8 +9,8 @@ import Projects from "@/screens/Projects";
 export default function Main() {
   return (
     <>
-      {/* <Home />
-      <About /> */}
+      <Home />
+      <About />
       <Projects />
       <Contact />
     </>

@@ -4,7 +4,6 @@ export const ProjectsContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4em 0;
 `;
 
 export const StyledTitle = styled.h1`

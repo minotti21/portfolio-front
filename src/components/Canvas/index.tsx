@@ -1,35 +1,35 @@
-import { KeyboardEventHandler, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { StyledCanvas } from "./styles";
 
 export default function Canvas({
   draw,
   tabIndex,
-  onKeyDown,
   width,
-  height
+  height,
 }: {
   draw: (ctx: CanvasRenderingContext2D, frameCount: number) => void;
   tabIndex: number;
-  onKeyDown: KeyboardEventHandler<HTMLCanvasElement>;
   width: number;
   height: number;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationFrameRef = useRef<number>(0);
   let frameCount = 0;
+  let animationFrame = 0;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
 
-    (function render() {
-      frameCount += 1;
+    function render() {
       if (ctx) draw(ctx, frameCount);
-      animationFrameRef.current = requestAnimationFrame(render);
-    })();
+      frameCount += 1;
+      animationFrame = window.requestAnimationFrame(render);
+    }
+
+    render();
 
     return () => {
-      cancelAnimationFrame(animationFrameRef.current);
+      window.cancelAnimationFrame(animationFrame);
     };
   }, [draw]);
 
@@ -37,7 +37,6 @@ export default function Canvas({
     <StyledCanvas
       ref={canvasRef}
       tabIndex={tabIndex}
-      onKeyDown={onKeyDown}
       width={width}
       height={height}
     />

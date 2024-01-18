@@ -93,7 +93,7 @@ export const TechnologyInfoContainer = styled.div`
   align-items: center;
   width: 100%;
   gap: 1em;
-  height: 333px;
+  height: 360px;
 `;
 
 export const TechnologyInfoTitle = styled.h2`
