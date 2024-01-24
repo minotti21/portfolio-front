@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Poppins } from "next/font/google";
 import AppContainer from "../components/AppContainer";
 import SkeletonLoading from "@/components/SkeletonLoading";
+import WindowHeightProvider from "@/context/WindowHeightContext";
 
 const DynamicUserThemeProvider = dynamic(
   () => import("../context/UserThemeContext"),
@@ -31,7 +32,9 @@ export default function RootLayout({
         <StyledComponentsRegistry>
           <DynamicUserThemeProvider>
             <NameProvider>
-              <AppContainer>{children}</AppContainer>
+              <WindowHeightProvider>
+                <AppContainer>{children}</AppContainer>
+              </WindowHeightProvider>
             </NameProvider>
           </DynamicUserThemeProvider>
         </StyledComponentsRegistry>

@@ -55,8 +55,8 @@ export default function SnakeGame() {
 
   const theme = useTheme();
 
-  const moveSnake = (direction: SnakeDirections) => {
-    switch (direction) {
+  const moveSnake = () => {
+    switch (snakeDirection) {
       case SnakeDirections.Right: {
         const newSnakePosition = snakePosition;
 
@@ -144,11 +144,11 @@ export default function SnakeGame() {
     }
   };
 
-  const checkLose = (position: { x: number; y: number }) => {
+  const checkLose = () => {
     const headOnBody = snakePosition.some(({ x, y }, i) => {
       if (i == 0) return false;
 
-      return position.x == x && position.y == y;
+      return snakePosition[0].x == x && snakePosition[0].y == y;
     });
 
     if (headOnBody) {
@@ -156,76 +156,61 @@ export default function SnakeGame() {
     }
   };
 
-  const checkAppleGrab = (
-    snakePosition: { x: number; y: number }[],
-    applePosition: { x: number; y: number },
-  ) => {
+  const checkAppleGrab = () => {
     if (
       snakePosition[0].x == applePosition.x &&
       snakePosition[0].y == applePosition.y
     ) {
       setApplePosition(generateNewApplePosition(snakePosition));
-      feedSnake();
       setScore(score + 10);
+      feedSnake();
     }
   };
 
   const feedSnake = () => {
     switch (snakeDirection) {
       case SnakeDirections.Right: {
-        setSnakePosition((prevPosition) => {
-          if (prevPosition[0].x == 880) {
-            return [{ x: 0, y: prevPosition[0].y }, ...prevPosition];
-          }
+        const newSnakePosition = snakePosition;
 
-          return [
-            { x: prevPosition[0].x + 20, y: prevPosition[0].y },
-            ...prevPosition,
-          ];
+        newSnakePosition.push({
+          x: snakePosition[snakePosition.length - 1].x + 20,
+          y: snakePosition[snakePosition.length - 1].y,
         });
 
+        setSnakePosition(newSnakePosition);
         break;
       }
       case SnakeDirections.Left: {
-        setSnakePosition((prevPosition) => {
-          if (prevPosition[0].x == 0) {
-            return [{ x: 900, y: prevPosition[0].y }, ...prevPosition];
-          }
+        const newSnakePosition = snakePosition;
 
-          return [
-            { x: prevPosition[0].x - 20, y: prevPosition[0].y },
-            ...prevPosition,
-          ];
+        newSnakePosition.push({
+          x: snakePosition[snakePosition.length - 1].x - 20,
+          y: snakePosition[snakePosition.length - 1].y,
         });
 
+        setSnakePosition(newSnakePosition);
         break;
       }
       case SnakeDirections.Up: {
-        setSnakePosition((prevPosition) => {
-          if (prevPosition[0].y == 0) {
-            return [{ y: 400, x: prevPosition[0].x }, ...prevPosition];
-          }
+        const newSnakePosition = snakePosition;
 
-          return [
-            { y: prevPosition[0].y - 20, x: prevPosition[0].x },
-            ...prevPosition,
-          ];
+        newSnakePosition.push({
+          y: snakePosition[snakePosition.length - 1].y - 20,
+          x: snakePosition[snakePosition.length - 1].x,
         });
 
+        setSnakePosition(newSnakePosition);
         break;
       }
       case SnakeDirections.Down: {
-        setSnakePosition((prevPosition) => {
-          if (prevPosition[0].y == 380) {
-            return [{ y: 0, x: prevPosition[0].x }, ...prevPosition];
-          }
+        const newSnakePosition = snakePosition;
 
-          return [
-            { y: prevPosition[0].y + 20, x: prevPosition[0].x },
-            ...prevPosition,
-          ];
+        newSnakePosition.push({
+          y: snakePosition[snakePosition.length - 1].y + 20,
+          x: snakePosition[snakePosition.length - 1].x,
         });
 
+        setSnakePosition(newSnakePosition);
         break;
       }
     }
@@ -304,7 +289,7 @@ export default function SnakeGame() {
   };
 
   const draw = useCallback(
-    (ctx: CanvasRenderingContext2D, frameCount: number) => {
+    (ctx: CanvasRenderingContext2D) => {
       ctx.clearRect(0, 0, 900, 400);
 
       for (let i = 0; i < 45; i++) {
@@ -321,14 +306,12 @@ export default function SnakeGame() {
         }
       }
 
-      if (frameCount % 6 == 0) {
-        moveSnake(snakeDirection);
-        checkLose(snakePosition[0]);
-        checkAppleGrab(snakePosition, applePosition);
-      }
+      moveSnake();
+      checkLose();
+      checkAppleGrab();
 
       ctx.fillStyle = "#065c00";
-      snakePosition.forEach(({ x, y }, i) => {
+      snakePosition.forEach(({ x, y }) => {
         ctx.beginPath();
         ctx.roundRect(x, y, 20, 20, 2);
         ctx.fill();
@@ -338,8 +321,13 @@ export default function SnakeGame() {
       ctx.beginPath();
       ctx.roundRect(applePosition.x, applePosition.y, 20, 20, 2);
       ctx.fill();
+
+      ctx.font = "bold 28px sans-serif";
+      ctx.fillStyle = "black";
+
+      ctx.fillText(`Score: ${score}`, 32, 32);
     },
-    [snakePosition, snakeDirection],
+    [snakePosition, snakeDirection, applePosition],
   );
 
   const startGame = () => {
@@ -351,9 +339,9 @@ export default function SnakeGame() {
 
   let gameComponent = (
     <StyledGameScreen>
-      <StyledTipsTitle>Como jogar?</StyledTipsTitle>
+      <StyledTipsTitle>Jogo da Cobrinha 🐍🍎</StyledTipsTitle>
       <StyledTips>
-        Utilize as setinhas do teclado ou as teclas W A S D para movimentar a
+        Utilize as setas ou as teclas ["W", "A", "S", "D"] para movimentar a
         cobrinha
       </StyledTips>
       <Button text="Jogar" onClick={() => startGame()} />
@@ -363,7 +351,7 @@ export default function SnakeGame() {
   if (gameState == GameStates.Running) {
     gameComponent = (
       <>
-        <Canvas draw={draw} tabIndex={0} width={900} height={400} />
+        <Canvas draw={draw} width={900} height={400} score={score} />
       </>
     );
   }
@@ -372,7 +360,7 @@ export default function SnakeGame() {
     gameComponent = (
       <>
         <StyledGameScreen>
-          <StyledTipsTitle>Você fez {score} pontos!</StyledTipsTitle>
+          <StyledTipsTitle>Você fez {score} pontos! 🥳</StyledTipsTitle>
           <StyledTips>Deseja jogar novamente?</StyledTips>
           <Button text="Jogar" onClick={() => startGame()} />
         </StyledGameScreen>
@@ -380,10 +368,5 @@ export default function SnakeGame() {
     );
   }
 
-  return (
-    <StyledSnakeGame>
-      <StyledTitle>Snake Game</StyledTitle>
-      {gameComponent}
-    </StyledSnakeGame>
-  );
+  return <StyledSnakeGame>{gameComponent}</StyledSnakeGame>;
 }

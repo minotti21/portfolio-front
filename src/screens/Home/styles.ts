@@ -39,6 +39,7 @@ export const StyledList = styled.ul``;
 export const StyledName = styled.span`
   background-color: ${({ theme }) => theme.defaultColor};
   color: #fff;
+  transition: 0.3s;
   padding: 0 0.1em;
   margin-right: 0.2em;
   display: inline-block;

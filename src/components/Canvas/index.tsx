@@ -1,16 +1,24 @@
-import { useEffect, useRef } from "react";
-import { StyledCanvas } from "./styles";
+import { MouseEventHandler, useEffect, useRef } from "react";
+import { StyledCanvas, StyledScore, StyledSideBar } from "./styles";
 
 export default function Canvas({
   draw,
-  tabIndex,
   width,
   height,
+  score,
+  onMouseMove,
+  onMouseDown,
+  onMouseUp,
+  isPaint,
 }: {
-  draw: (ctx: CanvasRenderingContext2D, frameCount: number) => void;
-  tabIndex: number;
+  draw: (ctx: CanvasRenderingContext2D) => void;
   width: number;
   height: number;
+  score?: number;
+  onMouseMove?: MouseEventHandler<HTMLCanvasElement>;
+  onMouseDown?: MouseEventHandler<HTMLCanvasElement>;
+  onMouseUp?: MouseEventHandler<HTMLCanvasElement>;
+  isPaint?: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let frameCount = 0;
@@ -21,7 +29,7 @@ export default function Canvas({
     const ctx = canvas?.getContext("2d");
 
     function render() {
-      if (ctx) draw(ctx, frameCount);
+      if (ctx && frameCount % 8 == 0) draw(ctx);
       frameCount += 1;
       animationFrame = window.requestAnimationFrame(render);
     }
@@ -33,12 +41,19 @@ export default function Canvas({
     };
   }, [draw]);
 
+  console.log(isPaint);
+
   return (
     <StyledCanvas
       ref={canvasRef}
-      tabIndex={tabIndex}
       width={width}
       height={height}
-    />
+      onMouseMove={onMouseMove}
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+    >
+      {!!score && <StyledScore>{score}</StyledScore>}
+      <StyledSideBar></StyledSideBar>
+    </StyledCanvas>
   );
 }

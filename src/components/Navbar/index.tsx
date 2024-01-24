@@ -15,23 +15,14 @@ import { isEqual } from "lodash";
 import Link from "next/link";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { black, white } from "@/constants/colors";
+import { WindowHeightContext } from "@/context/WindowHeightContext";
 
 export default function Navbar() {
-  const [currentWindowHeight, setCurrentWindowHeight] = useState(0);
+
+  const { currentHeight } = useContext(WindowHeightContext);
+
   const { theme, changeTheme } = useContext(UserThemeContext);
-  const showBorder = currentWindowHeight !== 0;
-
-  const updateWindowHeight = () => {
-    setCurrentWindowHeight(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", updateWindowHeight);
-
-    return () => {
-      window.removeEventListener("scroll", updateWindowHeight);
-    };
-  }, []);
+  const showBorder = currentHeight !== 0;
 
   const isThemeLight = theme.backgroundColor === white;
 
