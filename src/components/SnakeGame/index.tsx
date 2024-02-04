@@ -11,6 +11,7 @@ import {
   StyledTipsTitle,
   StyledTitle,
 } from "./style";
+import rgbUtils from "@/utils/rgbUtils";
 
 const generateNewApplePosition = (
   snakePosition: { x: number; y: number }[],
@@ -295,7 +296,11 @@ export default function SnakeGame() {
       for (let i = 0; i < 45; i++) {
         for (let j = 0; j < 20; j++) {
           if ((i + j) % 2 === 0) {
-            ctx.fillStyle = "#f5f5f5";
+            if (theme)
+              ctx.fillStyle = rgbUtils.makeRGBColorTransparent(
+                theme.defaultColor,
+                0.1,
+              );
           } else {
             ctx.fillStyle = "#fff";
           }
@@ -310,7 +315,8 @@ export default function SnakeGame() {
       checkLose();
       checkAppleGrab();
 
-      ctx.fillStyle = "#065c00";
+      if (theme)
+        ctx.fillStyle = rgbUtils.darkenRGBColor(theme.defaultColor, 150);
       snakePosition.forEach(({ x, y }) => {
         ctx.beginPath();
         ctx.roundRect(x, y, 20, 20, 2);

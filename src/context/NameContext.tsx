@@ -4,7 +4,7 @@ import getNameFromLocalStorage from "@/utils/getNameFromLocalStorage";
 import { ReactNode, createContext, useState } from "react";
 
 interface NameContextType {
-  name: string;
+  name: string | undefined;
   setName: (name: string) => void;
 }
 

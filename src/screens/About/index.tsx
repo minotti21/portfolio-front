@@ -485,7 +485,8 @@ export default function About() {
           Após dedicar grande parte do meu tempo ao estudo, consegui um emprego
           como desenvolvedor full stack e aprimorei ainda mais meus
           conhecimentos. Logo abaixo, você vai encontrar as tecnologias que
-          utilizo, um breve resumo feito por mim e também o tempo que tenho de experiência com cada uma:
+          utilizo, um breve resumo feito por mim e também o tempo que tenho de
+          experiência com cada uma:
         </StyledMiddleText>
 
         <Technologies>

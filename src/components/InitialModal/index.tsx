@@ -19,6 +19,10 @@ import { NameContext } from "@/context/NameContext";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
 
+interface FormType {
+  name: string;
+}
+
 export default function InitialModal() {
   const { theme, changeTheme } = useContext(UserThemeContext);
   const { name, setName } = useContext(NameContext);
@@ -27,7 +31,7 @@ export default function InitialModal() {
     handleSubmit,
     formState: { errors },
     setFocus,
-  } = useForm<{ name: string }>();
+  } = useForm<FormType>();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -57,7 +61,7 @@ export default function InitialModal() {
     changeTheme(newTheme);
   };
 
-  const onSubmit = ({ name }: { name: string }) => {
+  const onSubmit = ({ name }: FormType) => {
     localStorage.setItem("name", name);
     setName(name);
 

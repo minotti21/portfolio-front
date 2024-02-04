@@ -21,5 +21,6 @@ export const ProjectsFlex = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2em;
+  padding: 4em 0;
+  gap: 10em;
 `;

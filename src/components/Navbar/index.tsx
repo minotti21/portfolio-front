@@ -18,7 +18,6 @@ import { black, white } from "@/constants/colors";
 import { WindowHeightContext } from "@/context/WindowHeightContext";
 
 export default function Navbar() {
-
   const { currentHeight } = useContext(WindowHeightContext);
 
   const { theme, changeTheme } = useContext(UserThemeContext);
@@ -58,7 +57,7 @@ export default function Navbar() {
             <Link href="#contact">Contato</Link>
           </StyledNavItem>
           <StyledThemeIcon onClick={toggleTheme}>
-            {isThemeLight ? <PiSun size={25} /> : <PiMoon size={25} />}{" "}
+            {isThemeLight ? <PiMoon size={25} /> : <PiSun size={25} />}
           </StyledThemeIcon>
           <ColorSelector />
         </StyledNavItems>

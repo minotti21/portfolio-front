@@ -1,5 +1,5 @@
 import { MouseEventHandler, useEffect, useRef } from "react";
-import { StyledCanvas, StyledScore, StyledSideBar } from "./styles";
+import { StyledCanvas, StyledScore } from "./styles";
 
 export default function Canvas({
   draw,
@@ -9,7 +9,6 @@ export default function Canvas({
   onMouseMove,
   onMouseDown,
   onMouseUp,
-  isPaint,
 }: {
   draw: (ctx: CanvasRenderingContext2D) => void;
   width: number;
@@ -18,7 +17,6 @@ export default function Canvas({
   onMouseMove?: MouseEventHandler<HTMLCanvasElement>;
   onMouseDown?: MouseEventHandler<HTMLCanvasElement>;
   onMouseUp?: MouseEventHandler<HTMLCanvasElement>;
-  isPaint?: boolean;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   let frameCount = 0;
@@ -41,8 +39,6 @@ export default function Canvas({
     };
   }, [draw]);
 
-  console.log(isPaint);
-
   return (
     <StyledCanvas
       ref={canvasRef}
@@ -53,7 +49,6 @@ export default function Canvas({
       onMouseUp={onMouseUp}
     >
       {!!score && <StyledScore>{score}</StyledScore>}
-      <StyledSideBar></StyledSideBar>
     </StyledCanvas>
   );
 }

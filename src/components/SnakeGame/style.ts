@@ -1,3 +1,4 @@
+import rgbUtils from "@/utils/rgbUtils";
 import styled from "styled-components";
 
 export const StyledSnakeGame = styled.div`
@@ -19,7 +20,8 @@ export const StyledTitle = styled.h1`
 export const StyledGameScreen = styled.div`
   width: 900px;
   height: 400px;
-  border: 1px solid white;
+  outline: ${({ theme }) =>
+    `2px solid ${rgbUtils.darkenRGBColor(theme.defaultColor, 50)}`};
   display: flex;
   flex-direction: column;
   gap: 3em;

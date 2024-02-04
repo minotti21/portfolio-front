@@ -28,7 +28,7 @@ export default function Home() {
               Olá <StyledName>{name}</StyledName>!
             </StyledTitle>
             <StyledTitle>Seja muito bem-vindo(a)</StyledTitle>
-            <StyledTitle>ao meu portfólio! 😄</StyledTitle>
+            <StyledTitle>ao meu portfólio! 😄👋</StyledTitle>
           </TitleContainer>
           <StyledText>Aqui você vai encontrar:</StyledText>
           <StyledList>

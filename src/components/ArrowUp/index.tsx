@@ -8,7 +8,7 @@ export default function ArrowUp() {
 
   return (
     <ArrowContainer $show={currentHeight > window.innerHeight * 0.8}>
-      <FaArrowUp size={20} />
+      <FaArrowUp color="#fff" size={20} />
     </ArrowContainer>
   );
 }
