@@ -20,7 +20,7 @@ import Button from "../Button";
 import { useForm } from "react-hook-form";
 
 interface FormType {
-  name: string;
+  name: string | undefined;
 }
 
 export default function InitialModal() {
@@ -62,7 +62,7 @@ export default function InitialModal() {
   };
 
   const onSubmit = ({ name }: FormType) => {
-    localStorage.setItem("name", name);
+    name != undefined && localStorage.setItem("name", name);
     setName(name);
 
     setIsVisible(false);

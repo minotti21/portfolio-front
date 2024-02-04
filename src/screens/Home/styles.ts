@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import SVG from "react-inlinesvg";
 
 export const HomeContainer = styled.div`
   height: 100vh;
@@ -56,11 +55,4 @@ export const StyledItemList = styled.li`
   margin-left: 1.2em;
   font-size: 1.4em;
   font-weight: 300;
-`;
-
-export const StyledSvgBlob = styled(SVG)`
-  & path {
-    fill: ${({ theme }) => theme.defaultColor};
-    transition: 0.2s;
-  }
 `;

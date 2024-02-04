@@ -5,7 +5,7 @@ import { ReactNode, createContext, useState } from "react";
 
 interface NameContextType {
   name: string | undefined;
-  setName: (name: string) => void;
+  setName: (name: string | undefined) => void;
 }
 
 export const NameContext = createContext<NameContextType>(
