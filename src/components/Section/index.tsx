@@ -3,8 +3,9 @@ import { StyledSectionContainer } from "./styles";
 
 interface SectionProps {
   children: ReactNode;
+  id?: string;
 }
 
-export default function SectionContainer({ children }: SectionProps) {
-  return <StyledSectionContainer>{children}</StyledSectionContainer>;
+export default function SectionContainer({ children, id }: SectionProps) {
+  return <StyledSectionContainer id={id}>{children}</StyledSectionContainer>;
 }

@@ -381,7 +381,7 @@ export default function About() {
   }
 
   return (
-    <SectionContainer>
+    <SectionContainer id="about">
       <AboutContainer>
         <StyledTitle>Sobre mim</StyledTitle>
         <TextAndImageContainer>

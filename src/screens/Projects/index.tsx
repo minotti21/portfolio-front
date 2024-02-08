@@ -15,7 +15,7 @@ import QuoteOfTheday from "@/components/QuoteOfTheDay";
 
 export default function Projects() {
   return (
-    <SectionContainer>
+    <SectionContainer id="projects">
       <ProjectsContainer>
         <StyledTitle>Projetos</StyledTitle>
         <StyledText>

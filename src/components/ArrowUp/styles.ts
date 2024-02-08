@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ArrowContainer = styled.div<{ $show: boolean }>`
   width: 44px;
+  cursor: pointer;
   height: 44px;
   background-color: ${({ theme }) => theme.defaultColor};
   border-radius: 12px;

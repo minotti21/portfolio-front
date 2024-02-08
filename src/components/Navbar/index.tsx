@@ -9,13 +9,13 @@ import {
   NavbarPosition,
 } from "./styles";
 import { PiSun, PiMoon } from "react-icons/pi";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ColorSelector from "../ColorSelector";
 import { isEqual } from "lodash";
-import Link from "next/link";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { black, white } from "@/constants/colors";
 import { WindowHeightContext } from "@/context/WindowHeightContext";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Navbar() {
   const { currentHeight } = useContext(WindowHeightContext);
@@ -45,16 +45,16 @@ export default function Navbar() {
         <StyledLogo>minotti.dev</StyledLogo>
         <StyledNavItems>
           <StyledNavItem>
-            <Link href="#">Início</Link>
+            <Link to="home" >Início</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link href="#about">Sobre</Link>
+            <Link to="about" smooth={true}>Sobre</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link href="#projects">Projetos</Link>
+            <Link to="projects" smooth={true}>Projetos</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link href="#contact">Contato</Link>
+            <Link to="contact" smooth={true}>Contato</Link>
           </StyledNavItem>
           <StyledThemeIcon onClick={toggleTheme}>
             {isThemeLight ? <PiMoon size={25} /> : <PiSun size={25} />}

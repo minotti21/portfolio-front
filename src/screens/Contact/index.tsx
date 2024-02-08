@@ -22,7 +22,6 @@ interface FormType {
 }
 
 export default function Contact() {
-  const { theme } = useContext(UserThemeContext);
   const { name } = useContext(NameContext);
   const {
     register,
@@ -37,7 +36,7 @@ export default function Contact() {
   };
 
   return (
-    <SectionContainer>
+    <SectionContainer id="contact">
       <ContactContainer>
         <StyledTitle>Contato</StyledTitle>
         <StyledText>
