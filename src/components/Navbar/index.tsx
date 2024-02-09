@@ -45,16 +45,16 @@ export default function Navbar() {
         <StyledLogo>minotti.dev</StyledLogo>
         <StyledNavItems>
           <StyledNavItem>
-            <Link to="home" >Início</Link>
+            <Link to="about" duration={1000} offset={-100} smooth={true}>Sobre</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link to="about" smooth={true}>Sobre</Link>
+            <Link to="technologies" duration={1000} offset={-100} smooth={true}>Tecnologias</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link to="projects" smooth={true}>Projetos</Link>
+            <Link to="projects" duration={1000} offset={-100} smooth={true}>Projetos</Link>
           </StyledNavItem>
           <StyledNavItem>
-            <Link to="contact" smooth={true}>Contato</Link>
+            <Link to="contact" duration={1000} offset={-100} smooth={true}>Contato</Link>
           </StyledNavItem>
           <StyledThemeIcon onClick={toggleTheme}>
             {isThemeLight ? <PiMoon size={25} /> : <PiSun size={25} />}

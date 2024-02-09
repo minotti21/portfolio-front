@@ -9,11 +9,11 @@ import {
   StyledLabel,
   StyledText,
   StyledTextArea,
-  StyledTitle,
 } from "./styles";
 import { useForm } from "react-hook-form";
 import Button from "@/components/Button";
 import { NameContext } from "@/context/NameContext";
+import Title from "@/components/Title";
 
 interface FormType {
   name: string;
@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <SectionContainer id="contact">
       <ContactContainer>
-        <StyledTitle>Contato</StyledTitle>
+        <Title>Contato</Title>
         <StyledText>
           Preencha o formulário abaixo e me envie uma mensagem! Receberei no meu
           e-mail via uma API feita em Node com Express

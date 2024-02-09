@@ -25,10 +25,6 @@ export const StyledModal = styled.div`
   border-radius: 16px;
 `;
 
-export const StyledTitle = styled.h1`
-  font-size: 4.5em;
-`;
-
 export const StyledText = styled.p`
   font-size: 1.75em;
 `;

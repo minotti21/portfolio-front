@@ -10,7 +10,6 @@ import {
   StyledModal,
   StyledSubText,
   StyledText,
-  StyledTitle,
 } from "./styles";
 import { colors } from "@/constants/colors";
 import { UserThemeContext } from "@/context/UserThemeContext";
@@ -18,6 +17,7 @@ import { isEqual } from "lodash";
 import { NameContext } from "@/context/NameContext";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
+import Title from "../Title";
 
 interface FormType {
   name: string | undefined;
@@ -71,7 +71,7 @@ export default function InitialModal() {
   return (
     <ModalContainer>
       <StyledModal>
-        <StyledTitle>Calma aí!</StyledTitle>
+        <Title>Calma aí!</Title>
         <StyledText>
           Antes da gente começar, escolhe sua cor favorita:{" "}
         </StyledText>

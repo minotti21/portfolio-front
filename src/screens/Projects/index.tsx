@@ -1,23 +1,21 @@
 "use client";
 
-import { useContext } from "react";
-import { UserThemeContext } from "@/context/UserThemeContext";
 import SectionContainer from "@/components/Section";
 import {
   ProjectsContainer,
   ProjectsFlex,
   StyledText,
-  StyledTitle,
 } from "./styles";
 import SnakeGame from "@/components/SnakeGame";
 import Paint from "@/components/Paint";
 import QuoteOfTheday from "@/components/QuoteOfTheDay";
+import Title from "@/components/Title";
 
 export default function Projects() {
   return (
     <SectionContainer id="projects">
       <ProjectsContainer>
-        <StyledTitle>Projetos</StyledTitle>
+        <Title>Projetos</Title>
         <StyledText>
           Codei alguns projetos interativos, você não vai precisar sair do site
           pra ver 🤙

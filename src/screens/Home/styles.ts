@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { styled } from "styled-components";
 
 export const HomeContainer = styled.div`
@@ -5,6 +6,7 @@ export const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2em;
 `;
 
 export const StyledTitle = styled.h1`
@@ -56,3 +58,8 @@ export const StyledItemList = styled.li`
   font-size: 1.4em;
   font-weight: 300;
 `;
+
+export const Imagecontainer = styled(Image)`
+  width: 100%;
+  border-radius: 20px;
+`

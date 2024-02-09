@@ -1,13 +1,8 @@
 import rgbUtils from "@/utils/rgbUtils";
 import styled from "styled-components";
 
-export const StyledTitle = styled.h1`
-  font-size: 3em;
-`;
-
 export const ContactContainer = styled.div`
   display: flex;
-  padding: 4em 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;

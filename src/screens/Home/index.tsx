@@ -6,6 +6,7 @@ import { NameContext } from "@/context/NameContext";
 import { useContext } from "react";
 import {
   HomeContainer,
+  Imagecontainer,
   StyledItemList,
   StyledList,
   StyledName,
@@ -15,9 +16,11 @@ import {
   TitleContainer,
 } from "./styles";
 import Button from "@/components/Button";
+import { UserThemeContext } from "@/context/UserThemeContext";
 
 export default function Home() {
   const { name } = useContext(NameContext);
+  const { theme } = useContext(UserThemeContext);
 
   return (
     <SectionContainer>
@@ -39,6 +42,7 @@ export default function Home() {
           </StyledList>
           <Button text="Conhecer" />
         </TextContainer>
+        {/* <Imagecontainer src={`${theme.defaultColor}.webp`} alt="eu" /> */}
       </HomeContainer>
     </SectionContainer>
   );

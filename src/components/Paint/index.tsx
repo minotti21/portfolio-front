@@ -9,7 +9,6 @@ import {
   StyledSideBar,
   StyledTitle,
 } from "./style";
-import { ThemeContext } from "styled-components";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { Brush } from "./enum";
 

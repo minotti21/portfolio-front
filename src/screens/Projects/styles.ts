@@ -6,10 +6,6 @@ export const ProjectsContainer = styled.div`
   align-items: center;
 `;
 
-export const StyledTitle = styled.h1`
-  font-size: 3em;
-`;
-
 export const StyledText = styled.p`
   font-size: 1.5em;
   font-weight: 400;
