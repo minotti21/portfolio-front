@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
 
 export const HomeContainer = styled.div`
   height: 100vh;
@@ -37,6 +37,12 @@ export const TitleContainer = styled.div``;
 
 export const StyledList = styled.ul``;
 
+const animation = keyframes`
+ 0% { scale: 1 }
+ 50% { scale: 0.9 }
+ 100% { scale: 1 }
+`;
+
 export const StyledName = styled.span`
   background-color: ${({ theme }) => theme.defaultColor};
   color: #fff;
@@ -49,6 +55,7 @@ export const StyledName = styled.span`
     -1px 1px 1px rgb(0, 0, 0);
   transform: rotate(-5deg);
   border-radius: 4px;
+  animation: ${animation} 1.8s ease-in-out infinite;
 `;
 
 export const StyledItemList = styled.li`
@@ -60,6 +67,6 @@ export const StyledItemList = styled.li`
 `;
 
 export const Imagecontainer = styled(Image)`
-  width: 100%;
-  border-radius: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
 `

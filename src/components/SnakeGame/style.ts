@@ -33,6 +33,13 @@ export const StyledGameScreen = styled.div`
 
 export const StyledTipsTitle = styled.h1`
   font-size: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+  font-weight: bold;
+`;
+
+export const GameTitle = styled.h1`
+  font-size: 1.6em;
   text-align: center;
   font-weight: bold;
 `;

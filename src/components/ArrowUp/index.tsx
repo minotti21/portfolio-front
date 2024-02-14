@@ -6,7 +6,7 @@ import { animateScroll } from 'react-scroll';
 
 
 const options = {
-  duration: 500,
+  duration: 1000,
   smooth: true,
 };
 

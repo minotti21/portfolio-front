@@ -75,7 +75,7 @@ export default function InitialModal() {
         <StyledText>
           Antes da gente começar, escolhe sua cor favorita:{" "}
         </StyledText>
-        <StyledSubText>Você poderá escolher outra depois :&#41;</StyledSubText>
+        <StyledSubText>Você poderá escolher outra depois 😅</StyledSubText>
         <ColorsContainer>
           {colors.map((color) => (
             <StyledColorIcon

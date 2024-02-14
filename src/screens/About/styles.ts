@@ -7,6 +7,7 @@ export const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 8em;
 `;
 
 export const StyledText = styled.p`
@@ -18,11 +19,16 @@ export const TextContainer = styled.div`
   flex: 0.5;
 `;
 
+export const FlexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6em;
+`
+
 export const TextAndImageContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4em 0;
   gap: 6em;
 `;
 

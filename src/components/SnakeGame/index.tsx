@@ -1,15 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Canvas from "../Canvas";
 import { useTheme } from "styled-components";
 import { GameStates, SnakeDirections } from "./enums";
 import Button from "../Button";
 import {
+  GameTitle,
   StyledGameScreen,
-  StyledScore,
   StyledSnakeGame,
   StyledTips,
   StyledTipsTitle,
-  StyledTitle,
 } from "./style";
 import rgbUtils from "@/utils/rgbUtils";
 
@@ -42,9 +41,9 @@ export default function SnakeGame() {
   const [snakeDirection, setSnakeDirection] = useState<SnakeDirections>(
     SnakeDirections.Right,
   );
-  const [applePosition, setApplePosition] = useState(
-    generateNewApplePosition(snakePosition),
-  );
+  const applePosition = useRef(generateNewApplePosition(snakePosition));
+
+  const theme = useTheme();
 
   useEffect(() => {
     if (gameState == GameStates.Running) {
@@ -53,8 +52,6 @@ export default function SnakeGame() {
 
     return () => document.removeEventListener("keydown", switchDirection);
   }, [snakeDirection, gameState]);
-
-  const theme = useTheme();
 
   const moveSnake = () => {
     switch (snakeDirection) {
@@ -159,10 +156,10 @@ export default function SnakeGame() {
 
   const checkAppleGrab = () => {
     if (
-      snakePosition[0].x == applePosition.x &&
-      snakePosition[0].y == applePosition.y
+      snakePosition[0].x == applePosition.current.x &&
+      snakePosition[0].y == applePosition.current.y
     ) {
-      setApplePosition(generateNewApplePosition(snakePosition));
+      applePosition.current = generateNewApplePosition(snakePosition);
       setScore(score + 10);
       feedSnake();
     }
@@ -325,7 +322,7 @@ export default function SnakeGame() {
 
       if (theme) ctx.fillStyle = theme.defaultColor;
       ctx.beginPath();
-      ctx.roundRect(applePosition.x, applePosition.y, 20, 20, 2);
+      ctx.roundRect(applePosition.current.x, applePosition.current.y, 20, 20, 2);
       ctx.fill();
 
       ctx.font = "bold 28px sans-serif";
@@ -333,22 +330,21 @@ export default function SnakeGame() {
 
       ctx.fillText(`Score: ${score}`, 32, 32);
     },
-    [snakePosition, snakeDirection, applePosition],
+    [snakePosition, snakeDirection, applePosition, theme],
   );
 
   const startGame = () => {
     setGameState(GameStates.Running);
     setScore(0);
     setSnakePosition([{ x: 460, y: 200 }]);
-    setApplePosition(generateNewApplePosition(snakePosition));
+    applePosition.current = generateNewApplePosition(snakePosition);
   };
 
   let gameComponent = (
     <StyledGameScreen>
-      <StyledTipsTitle>Jogo da Cobrinha 🐍🍎</StyledTipsTitle>
       <StyledTips>
-        Utilize as setas ou as teclas ["W", "A", "S", "D"] para movimentar a
-        cobrinha
+        Utilize as setas ou as teclas ["W", "A", "S", "D"] do teclado para
+        movimentar a cobrinha
       </StyledTips>
       <Button text="Jogar" onClick={() => startGame()} />
     </StyledGameScreen>
@@ -366,7 +362,7 @@ export default function SnakeGame() {
     gameComponent = (
       <>
         <StyledGameScreen>
-          <StyledTipsTitle>Você fez {score} pontos! 🥳</StyledTipsTitle>
+          <GameTitle>Você fez {score} pontos! 🥳</GameTitle>
           <StyledTips>Deseja jogar novamente?</StyledTips>
           <Button text="Jogar" onClick={() => startGame()} />
         </StyledGameScreen>
@@ -374,5 +370,10 @@ export default function SnakeGame() {
     );
   }
 
-  return <StyledSnakeGame>{gameComponent}</StyledSnakeGame>;
+  return (
+    <StyledSnakeGame>
+      <StyledTipsTitle>Jogo da Cobrinha 🐍🍎</StyledTipsTitle>
+      {gameComponent}
+    </StyledSnakeGame>
+  );
 }

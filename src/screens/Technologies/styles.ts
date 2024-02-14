@@ -3,10 +3,11 @@ import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 
 export const TechnologiesContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3em;
+`;
 
 export const TechnologiesImageContainer = styled.div`
   display: grid;
@@ -19,10 +20,16 @@ export const TechnologiesImageContainer = styled.div`
 `;
 
 export const StyledMiddleText = styled.p`
-  font-size: 1.5em;
-  margin-top: 3em;
+  font-size: 1.4em;
   font-weight: 400;
   text-align: center;
+`;
+
+const animation = keyframes`
+ 0% { rotate: 0 }
+ 25% { rotate: 12deg }
+ 75% { rotate: -12deg}
+ 100% { rotate: 0 }
 `;
 
 export const StyledTechnologyImage = styled(Image)`
@@ -31,7 +38,9 @@ export const StyledTechnologyImage = styled(Image)`
 
   &:hover {
     opacity: 1;
+    animation: ${animation} 1s linear infinite backwards;
   }
+
 `;
 
 export const TechnologieImageBackground = styled.div`
@@ -42,12 +51,13 @@ export const TechnologieImageBackground = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.backgroundColor == white ? "transparent": "#fafafa"};
+  background-color: ${({ theme }) =>
+    theme.backgroundColor == white ? "transparent" : "#fafafa"};
   opacity: 0.4;
 
-&:hover {
-  opacity: 1;
-}
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 export const TechnologyInfoContainer = styled.div`

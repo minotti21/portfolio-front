@@ -8,8 +8,8 @@ export const StyledQuoteOfTheDay = styled.div`
 `;
 
 export const StyledTitle = styled.h1`
-  font-size: 2.2em;
-  margin-bottom: 0.8em;
+  font-size: 2em;
+  margin-bottom: 1em;
 `;
 
 export const StyledQuote = styled.blockquote`

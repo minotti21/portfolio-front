@@ -1,11 +1,7 @@
 "use client";
 
 import SectionContainer from "@/components/Section";
-import {
-  ProjectsContainer,
-  ProjectsFlex,
-  StyledText,
-} from "./styles";
+import { ProjectsContainer, ProjectsFlex, StyledText } from "./styles";
 import SnakeGame from "@/components/SnakeGame";
 import Paint from "@/components/Paint";
 import QuoteOfTheday from "@/components/QuoteOfTheDay";
@@ -15,7 +11,7 @@ export default function Projects() {
   return (
     <SectionContainer id="projects">
       <ProjectsContainer>
-        <Title>Projetos</Title>
+        <Title style={{ marginBottom: "0.4em" }}>Projetos</Title>
         <StyledText>
           Codei alguns projetos interativos, você não vai precisar sair do site
           pra ver 🤙

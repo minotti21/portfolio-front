@@ -28,7 +28,7 @@ export const NavbarPosition = styled.nav<{ $showBorder: boolean }>`
 `;
 
 export const NavbarContainer = styled.div`
-  height: 100px;
+  height: 80px;
   display: flex;
   margin: 0 auto;
   max-width: 1280px;

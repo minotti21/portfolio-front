@@ -50,14 +50,14 @@ export default function Technologies() {
         <>
           <TechnologyInfoTitle>CSS</TechnologyInfoTitle>
           <TechnologyInfoText>
-            A segunda linguagem da tríade front-end, esse aqui é uma linguagem
+            A segunda linguagem da tríade front-end, essa aqui é uma linguagem
             de estilo, com ela podemos dar cor ao nosso HTML e também posicionar
             elementos de forma mais simples.
           </TechnologyInfoText>
           <TechnologyInfoText>
             CSS significa Cascading Style Sheets (Folha de Estilo em Cascatas em
             português) e permitiu que os desenvolvedores separassem o arquivos
-            de estilo e texto, trazendo maior escalabilidade para os projetos.
+            de estilo e texto, trazendo mais organização aos projetos.
           </TechnologyInfoText>
           <ExperienceText>
             Tempo de experiência: 2 anos e 5 meses
@@ -166,7 +166,7 @@ export default function Technologies() {
           <TechnologyInfoText>
             O framework Angular (desenvolvido pela Google) utiliza o TypeScript
             por padrão. Traz também alguns recursos para orientação a objeto,
-            ótimo para manter o código organizado sem a utilização de
+            é ótimo para manter o código organizado sem a utilização de
             frameworks.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
@@ -274,7 +274,7 @@ export default function Technologies() {
           <TechnologyInfoText>
             Essencial para criação de APIs Restful e praticamente obrigatório
             para qualquer desenvolvedor de Node na web, tem uma estrutura leve e
-            poderosa auxiliando a lidar com rotas, middlewares e manipulacões de
+            poderosa auxiliando a lidar com rotas, middlewares e manipulações de
             diferentes tipos de requisição.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 1 ano</ExperienceText>
@@ -376,9 +376,9 @@ export default function Technologies() {
   return (
     <SectionContainer id="technologies">
       <TechnologiesContainer>
-        <Title>Tecnologias</Title>
+        <Title style={{ marginBottom: "0.4em" }}>Tecnologias</Title>
         <StyledMiddleText>
-          Após dedicar grande parte do meu tempo ao estudo, consegui um emprego
+          Depois de muita dedicação, consegui um emprego
           como desenvolvedor full stack e aprimorei ainda mais meus
           conhecimentos. Logo abaixo, você vai encontrar as tecnologias que
           utilizo, um breve resumo feito por mim e também o tempo que tenho de

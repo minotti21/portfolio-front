@@ -11,6 +11,7 @@ import {
 } from "./style";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { Brush } from "./enum";
+import rgbUtils from "@/utils/rgbUtils";
 
 export default function Paint() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -80,7 +81,7 @@ export default function Paint() {
 
   return (
     <StyledPaint>
-      <StyledTitle>Paint</StyledTitle>
+      <StyledTitle>Ateliê Digital 🎨🖌️</StyledTitle>
       <StyledPaintContainer>
         <StyledSideBar>
           <StyledBrushSize
@@ -111,7 +112,13 @@ export default function Paint() {
           <IoBrushOutline
             size={44}
             cursor={"pointer"}
-            color={isErasing ? theme.fontColor : theme.defaultColor}
+            color={
+              isErasing
+                ? theme.backgroundColor == "rgb(14, 14, 14)"
+                  ? rgbUtils.lightenRGBColor(theme.backgroundColor, 60)
+                  : rgbUtils.darkenRGBColor(theme.backgroundColor, 60)
+                : theme.defaultColor
+            }
             style={{ transition: "0.3s" }}
             onClick={() => setIsErasing(false)}
           />
@@ -119,7 +126,13 @@ export default function Paint() {
             size={44}
             cursor={"pointer"}
             style={{ transition: "0.3s" }}
-            color={isErasing ? theme.defaultColor : theme.fontColor}
+            color={
+              isErasing
+                ? theme.defaultColor
+                : theme.backgroundColor == "rgb(14, 14, 14)"
+                  ? rgbUtils.lightenRGBColor(theme.backgroundColor, 60)
+                  : rgbUtils.darkenRGBColor(theme.backgroundColor, 60)
+            }
             onClick={() => setIsErasing(true)}
           />
         </StyledSideBar>

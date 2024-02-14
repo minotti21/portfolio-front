@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <SectionContainer id="contact">
       <ContactContainer>
-        <Title>Contato</Title>
+        <Title style={{ marginBottom: "0.4em" }}>Contato</Title>
         <StyledText>
           Preencha o formulário abaixo e me envie uma mensagem! Receberei no meu
           e-mail via uma API feita em Node com Express

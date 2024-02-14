@@ -12,7 +12,7 @@ export const StyledText = styled.p`
   font-size: 1.5em;
   font-weight: 400;
   text-align: center;
-  margin: 1em 0;
+  margin-bottom: 1em;
 `;
 
 export const StyledInput = styled.input`
@@ -24,7 +24,7 @@ export const StyledInput = styled.input`
   background-color: ${({ theme }) =>
     theme.backgroundColor == "rgb(14, 14, 14)"
       ? rgbUtils.lightenRGBColor(theme.backgroundColor, 30)
-      : rgbUtils.darkenRGBColor(theme.backgroundColor, 10)};
+      : rgbUtils.darkenRGBColor(theme.backgroundColor, 20)};
   color: ${({ theme }) => theme.fontColor};
   align-items: center;
   font-weight: bold;
@@ -32,13 +32,13 @@ export const StyledInput = styled.input`
   font-size: 1.6em;
   outline: none;
   border: none;
-  transition: 0.3s;
+  transition: 0.6s;
 
   &:focus {
     -webkit-box-shadow: ${({ theme }) =>
-      `0px 0px 3px 0px ${theme.defaultColor}`};
-    -moz-box-shadow: ${({ theme }) => `0px 0px 3px 0px ${theme.defaultColor}`};
-    box-shadow: ${({ theme }) => `0px 0px 3px 0px ${theme.defaultColor}`};
+      `0px 0px 2px 1px ${theme.defaultColor}`};
+    -moz-box-shadow: ${({ theme }) => `0px 0px 2px 1px ${theme.defaultColor}`};
+    box-shadow: ${({ theme }) => `0px 0px 2px 1px ${theme.defaultColor}`};
   }
 `;
 
@@ -50,7 +50,7 @@ export const StyledTextArea = styled.textarea`
   background-color: ${({ theme }) =>
     theme.backgroundColor == "rgb(14, 14, 14)"
       ? rgbUtils.lightenRGBColor(theme.backgroundColor, 30)
-      : rgbUtils.darkenRGBColor(theme.backgroundColor, 10)};
+      : rgbUtils.darkenRGBColor(theme.backgroundColor, 20)};
   color: ${({ theme }) => theme.fontColor};
   font-weight: bold;
   caret-color: ${({ theme }) => theme.defaultColor};
@@ -60,13 +60,13 @@ export const StyledTextArea = styled.textarea`
   border: none;
   resize: none;
   margin-bottom: 0.6em;
-  transition: 0.3s;
+  transition: 0.6s;
 
   &:focus {
     -webkit-box-shadow: ${({ theme }) =>
-      `0px 0px 3px 0px ${theme.defaultColor}`};
-    -moz-box-shadow: ${({ theme }) => `0px 0px 3px 0px ${theme.defaultColor}`};
-    box-shadow: ${({ theme }) => `0px 0px 3px 0px ${theme.defaultColor}`};
+      `0px 0px 2px 1px ${theme.defaultColor}`};
+    -moz-box-shadow: ${({ theme }) => `0px 0px 2px 1px ${theme.defaultColor}`};
+    box-shadow: ${({ theme }) => `0px 0px 2px 1px ${theme.defaultColor}`};
   }
 `;
 

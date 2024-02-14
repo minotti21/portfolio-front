@@ -1,11 +1,11 @@
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 import { StyledTitle } from "./styles";
 
-interface TitleProps {
-    children: string;
+interface TitleProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  children: string;
 }
 
-export default function Title({ children }: TitleProps) {
-    return (
-        <StyledTitle>{children}</StyledTitle>
-    )
+export default function Title({ children, ...props }: TitleProps) {
+  return <StyledTitle {...props}>{children}</StyledTitle>;
 }
