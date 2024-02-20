@@ -38,7 +38,7 @@ export default function About() {
             </TextContainer>
             <StyledImage>
               <ResponsiveImage
-                src="/office.jpg"
+                src="/office.webp"
                 alt="escritório"
                 width={600}
                 height={337.5}
@@ -54,7 +54,7 @@ export default function About() {
           <TextAndImageContainer>
             <StyledImage>
               <ResponsiveImage
-                src="/league-of-legends.png"
+                src="/league-of-legends.webp"
                 alt="escritório"
                 width={600}
                 height={337.5}
@@ -94,7 +94,7 @@ export default function About() {
             </TextContainer>
             <StyledImage>
               <ResponsiveImage
-                src="/programming.jpg"
+                src="/programming.webp"
                 alt="escritório"
                 width={600}
                 height={337.5}

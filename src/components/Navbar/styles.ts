@@ -97,7 +97,7 @@ export const StyledNavItem = styled.li`
   }
 `;
 
-export const StyledThemeIcon = styled.div`
+export const StyledThemeIcon = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;

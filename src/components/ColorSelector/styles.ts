@@ -2,7 +2,7 @@ import { white } from "@/constants/colors";
 import rgbUtils from "@/utils/rgbUtils";
 import { styled } from "styled-components";
 
-export const ColorSelectorContainer = styled.div`
+export const ColorSelectorContainer = styled.li`
   position: relative;
 `;
 

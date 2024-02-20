@@ -25,7 +25,7 @@ export const StyledModal = styled.div`
   border-radius: 16px;
 `;
 
-export const StyledText = styled.p`
+export const StyledText = styled.label`
   font-size: 1.75em;
 `;
 

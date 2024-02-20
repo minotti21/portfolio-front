@@ -95,20 +95,23 @@ export default function Contact() {
             meu e-mail via uma API feita em Node com Express
           </StyledText>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <StyledLabel>Nome</StyledLabel>
+            <StyledLabel htmlFor="name">Nome</StyledLabel>
             <StyledInput
               type="text"
+              id="name"
               defaultValue={name}
               maxLength={25}
               {...register("name", { required: true })}
-            />
-            <StyledLabel>E-mail</StyledLabel>
+              />
+            <StyledLabel htmlFor="email">E-mail</StyledLabel>
             <StyledInput
+              id="email"
               type="email"
               {...register("email", { required: true })}
-            />
-            <StyledLabel>Mensagem</StyledLabel>
+              />
+            <StyledLabel htmlFor="message">Mensagem</StyledLabel>
             <StyledTextArea
+              id="message"
               maxLength={600}
               {...register("message", { required: true, minLength: 60 })}
             />

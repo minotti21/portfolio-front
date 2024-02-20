@@ -60,7 +60,7 @@ const getImagePath = (backgroundColor: string, defaultColor: string) => {
     }
   }
 
-  return `/${imageSrc}_${whichTheme}.png`;
+  return `/${imageSrc}_${whichTheme}.webp`;
 };
 
 export default function Home() {
@@ -92,7 +92,7 @@ export default function Home() {
             <StyledItemList>Alguns projetos</StyledItemList>
             <StyledItemList>Formas de me contatar</StyledItemList>
           </StyledList>
-          <Link to="about" duration={1000} offset={-92} smooth={true}>
+          <Link href="about" to="about" duration={1000} offset={-92} smooth={true}>
             <Button text="Conhecer" />
           </Link>
         </TextContainer>

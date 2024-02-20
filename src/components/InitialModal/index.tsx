@@ -89,9 +89,10 @@ export default function InitialModal() {
             />
           ))}
         </ColorsContainer>
-        <StyledText>Agora, me diz seu nome: </StyledText>
+        <StyledText htmlFor="name">Agora, me diz seu nome: </StyledText>
         <form onSubmit={handleSubmit(onSubmit)}>
           <StyledInput
+            id="name"
             type="text"
             maxLength={20}
             {...register("name", { pattern: /^[A-zÀ-ú]+$/i, required: true })}
