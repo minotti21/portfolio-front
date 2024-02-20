@@ -7,6 +7,7 @@ import SkeletonLoading from "@/components/SkeletonLoading";
 import WindowHeightProvider from "@/context/WindowHeightContext";
 import ScrollbarProvider from "@/context/ScrollbarContext";
 import IsMobileProvider from "@/context/IsMobileContext";
+import { Metadata } from "next";
 
 const DynamicUserThemeProvider = dynamic(
   () => import("../context/UserThemeContext"),
@@ -19,10 +20,13 @@ const poppins = Poppins({
   display: "auto",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "minotti.dev",
+  icons: {
+    icon: "/test.png",
+  },
   description: "Portfólio de Vinicius Minotti",
-  visualViewport: "width=device-width, initial-scale=1",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({

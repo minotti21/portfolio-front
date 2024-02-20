@@ -7,7 +7,8 @@ import {
   StyledQuoteOfTheDay,
   StyledTitle,
 } from "./style";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 export default function QuoteOfTheday() {
   const [quote, setQuote] = useState({
@@ -15,6 +16,8 @@ export default function QuoteOfTheday() {
     author: "A citação está carregando...",
   });
   const [isRequesting, setIsRequesting] = useState(false);
+
+  const { isMobile } = useContext(IsMobileContext);
 
   useEffect(() => {
     getQuote();
@@ -49,14 +52,21 @@ export default function QuoteOfTheday() {
     <StyledQuoteOfTheDay>
       <StyledTitle>Citação do Dia ✍📖</StyledTitle>
       <StyledQuote>
-        <RestartIcon style={{ color: isRequesting ? "#444" : "#f3f3f3" }} onClick={getAnotherQuote} size={36} />"{quote.author}"
-        <StyledAuthor>{quote.quote}</StyledAuthor>
+        <RestartIcon
+          style={{ color: isRequesting ? "#444" : "#f3f3f3" }}
+          onClick={getAnotherQuote}
+          size={isMobile ? 24 : 36}
+        />
+        "{quote.author}"<StyledAuthor>{quote.quote}</StyledAuthor>
       </StyledQuote>
-      <Description>Reflita sobre a frase e caso queira ler mais alguma, basta clicar no botão localizado no canto superior direito 😊</Description>
       <Description>
-        Para esse projeto, populei uma collection no MongoDB com citações de grandes filósofos que
-        admiro, então criei uma API em Node com Express para puxar uma citação
-        aleatória do banco.
+        Reflita sobre a frase e caso queira ler mais alguma, basta clicar no
+        botão localizado no canto superior direito 😊
+      </Description>
+      <Description>
+        Para esse projeto, populei uma collection no MongoDB com citações de
+        grandes filósofos que admiro, então criei uma API em Node com Express
+        para puxar uma citação aleatória do banco.
       </Description>
     </StyledQuoteOfTheDay>
   );

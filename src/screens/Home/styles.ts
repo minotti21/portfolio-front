@@ -30,7 +30,7 @@ export const StyledTitle = styled.h1`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 1.2em;
+    font-size: 1.5em;
   }
 `;
 
@@ -47,7 +47,7 @@ export const StyledText = styled.p`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 1em;
+    font-size: 1.1em;
   }
 `;
 
@@ -100,7 +100,7 @@ export const StyledItemList = styled.li`
   }
 
   @media screen and (max-width: 1100px) {
-    font-size: 1.0em;
+    font-size: 1.1em;
   }
 `;
 

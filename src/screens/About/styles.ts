@@ -23,7 +23,7 @@ export const StyledText = styled.p`
   }
 
   @media screen and (max-width: 800px) {
-    font-size: 0.6em;
+    font-size: 1em;
   }
 `;
 
@@ -64,6 +64,10 @@ export const StyledSkillsText = styled.p`
 
   @media screen and (max-width: 1100px) {
     font-size: 0.8em;
+  }
+  
+  @media screen and (max-width: 800px) {
+    font-size: 0.7em;
   }
 `;
 

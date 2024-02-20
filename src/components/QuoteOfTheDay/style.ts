@@ -69,4 +69,5 @@ export const RestartIcon = styled(VscDebugRestart)`
   right: 15px;
   top: 15px;
   cursor: pointer;
+
 `
