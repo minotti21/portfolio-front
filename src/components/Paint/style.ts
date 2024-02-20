@@ -5,11 +5,11 @@ export const StyledPaint = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2em;
 `;
 
 export const StyledTitle = styled.h1`
   font-size: 2em;
-  margin-bottom: 1em;
 
   @media screen and (max-width: 1480px) {
     font-size: 1.75em;
@@ -36,6 +36,13 @@ export const StyledSideBar = styled.div`
     rgbUtils.makeRGBColorTransparent(theme.defaultColor, 0.1)};
   border-bottom-right-radius: 4px;
 `;
+
+export const Description = styled.p`
+  font-size: 1.4em;
+  text-align: center;
+  font-weight: 500;
+`;
+
 
 export const StyledBrushSize = styled.div<{
   $size: number;

@@ -17,6 +17,10 @@ export const TechnologiesImageContainer = styled.div`
   grid-template-rows: 1fr 1fr;
   width: 100%;
   margin-top: 4em;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 export const StyledMiddleText = styled.p`
@@ -26,6 +30,14 @@ export const StyledMiddleText = styled.p`
   
   @media screen and (max-width: 1480px) {
     font-size: 1.3em;
+  }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.1em;
+  }
+  
+  @media screen and (max-width: 800px) {
+    font-size: 0.9em;
   }
 `;
 
@@ -45,6 +57,16 @@ export const StyledTechnologyImage = styled(Image)`
   @media screen and (max-width: 1480px) {
     width: 72px;
     height: 72px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 64px;
+    height: 64px;
+  }
+  
+  @media screen and (max-width: 800px) {
+    width: 44px;
+    height: 44px;
   }
 
   &:hover {
@@ -79,6 +101,11 @@ export const TechnologyInfoContainer = styled.div`
   width: 100%;
   gap: 1em;
   height: 360px;
+
+  @media screen and (max-width: 800px) {
+    height: auto;
+    margin: 2em 0;
+  }
 `;
 
 export const TechnologyInfoTitle = styled.h2`
@@ -87,6 +114,14 @@ export const TechnologyInfoTitle = styled.h2`
   
   @media screen and (max-width: 1480px) {
     font-size: 1.8em;
+  }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.6em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.4em;
   }
 `;
 
@@ -98,12 +133,32 @@ export const TechnologyInfoText = styled.p`
   @media screen and (max-width: 1480px) {
     font-size: 1.2em;
   }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.1em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.9em;
+  }
 `;
 
 export const ExperienceText = styled.p`
   font-size: 1.6em;
   font-weight: 600;
   text-align: center;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 1.5em;
+  }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.4em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+  }
 `;
 
 export const TechnologyInfoSpan = styled.span`

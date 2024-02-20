@@ -27,9 +27,19 @@ export const Info = styled.div`
   margin-bottom: 4em;
   width: 100%;
   max-width: 1280px;
-  
+
   @media screen and (max-width: 1480px) {
     max-width: 1100px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    max-width: 800px;
+  }
+
+  @media screen and (max-width: 800px) {
+    max-width: 100%;
+    padding: 0 2em;
+    flex-direction: column;
   }
 `;
 
@@ -41,7 +51,7 @@ export const SocialMediaContainer = styled.a`
   transition: 0.3s;
   text-decoration: none;
   color: ${({ theme }) => theme.fontColor};
-  
+
   &:hover {
     color: ${({ theme }) => theme.defaultColor};
   }
@@ -50,4 +60,12 @@ export const SocialMediaContainer = styled.a`
 export const MediaText = styled.p`
   font-size: 1.4em;
   font-weight: 600;
-`
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.2em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.9em;
+  }
+`;

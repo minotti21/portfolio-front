@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const StyledSnakeGame = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 2em;
   align-items: center;
 `;
 
@@ -33,7 +34,6 @@ export const StyledGameScreen = styled.div`
 
 export const StyledTipsTitle = styled.h1`
   font-size: 2em;
-  margin-bottom: 1em;
   text-align: center;
   font-weight: bold;
 

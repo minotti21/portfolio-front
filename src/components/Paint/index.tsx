@@ -3,6 +3,7 @@ import { RxEraser } from "react-icons/rx";
 import { IoBrushOutline } from "react-icons/io5";
 import Canvas from "../Canvas";
 import {
+  Description,
   StyledBrushSize,
   StyledPaint,
   StyledPaintContainer,
@@ -145,6 +146,8 @@ export default function Paint() {
           height={400}
         />
       </StyledPaintContainer>
+
+      <Description>Semelhante ao jogo da cobrinha, utilizei React Hooks e HTML Canvas para fazer.</Description>
     </StyledPaint>
   );
 }

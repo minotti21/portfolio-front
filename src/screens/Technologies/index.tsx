@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import {
   TechnologyInfoSpan,
@@ -14,10 +14,13 @@ import {
 } from "./styles";
 import SectionContainer from "@/components/Section";
 import Title from "@/components/Title";
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 export default function Technologies() {
   const [currentSkill, setCurrentSkill] = useState("");
-  const tecnologyInfo = "Passe o mouse sobre as tecnologias acima 👆";
+  const { isMobile } = useContext(IsMobileContext);
+
+  const tecnologyInfo = isMobile ? "Clique nas tecnologias acima 👆" : "Passe o mouse sobre as tecnologias acima 👆";
 
   let technologyText = <TechnologyInfoSpan>{tecnologyInfo}</TechnologyInfoSpan>;
 
@@ -165,8 +168,8 @@ export default function Technologies() {
           </TechnologyInfoText>
           <TechnologyInfoText>
             O framework Angular (desenvolvido pela Google) utiliza o TypeScript
-            por padrão. Traz também alguns recursos para orientação a objeto,
-            é ótimo para manter o código organizado sem a utilização de
+            por padrão. Traz também alguns recursos para orientação a objeto, é
+            ótimo para manter o código organizado sem a utilização de
             frameworks.
           </TechnologyInfoText>
           <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
@@ -378,11 +381,10 @@ export default function Technologies() {
       <TechnologiesContainer>
         <Title style={{ marginBottom: "0.4em" }}>Tecnologias</Title>
         <StyledMiddleText>
-          Depois de muita dedicação, consegui um emprego
-          como desenvolvedor full stack e aprimorei ainda mais meus
-          conhecimentos. Logo abaixo, você vai encontrar as tecnologias que
-          utilizo, um breve resumo feito por mim e também o tempo que tenho de
-          experiência com cada uma:
+          Depois de muita dedicação, consegui um emprego como desenvolvedor full
+          stack e aprimorei ainda mais meus conhecimentos. Logo abaixo, você vai
+          encontrar as tecnologias que utilizo, um breve resumo feito por mim e
+          também o tempo que tenho de experiência com cada uma:
         </StyledMiddleText>
 
         <TechnologiesImageContainer>
@@ -458,16 +460,19 @@ export default function Technologies() {
             height={80}
             alt="icon"
           />
-          <TechnologieImageBackground>
-            <StyledTechnologyImage
-              onMouseEnter={() => setCurrentSkill("next")}
-              onMouseLeave={() => setCurrentSkill("")}
-              src="/next.svg"
-              width={80}
-              height={80}
-              alt="icon"
-            />
-          </TechnologieImageBackground>
+          <StyledTechnologyImage
+            style={{
+              backgroundColor: "rgb(248, 250, 252)",
+              padding: 2,
+              borderRadius: 111,
+            }}
+            onMouseEnter={() => setCurrentSkill("next")}
+            onMouseLeave={() => setCurrentSkill("")}
+            src="/next.svg"
+            width={80}
+            height={80}
+            alt="icon"
+          />
           <StyledTechnologyImage
             onMouseEnter={() => setCurrentSkill("node")}
             onMouseLeave={() => setCurrentSkill("")}
@@ -476,16 +481,19 @@ export default function Technologies() {
             height={80}
             alt="icon"
           />
-          <TechnologieImageBackground>
-            <StyledTechnologyImage
-              onMouseEnter={() => setCurrentSkill("express")}
-              onMouseLeave={() => setCurrentSkill("")}
-              src="/express.svg"
-              width={80}
-              height={80}
-              alt="icon"
-            />
-          </TechnologieImageBackground>
+          <StyledTechnologyImage
+            onMouseEnter={() => setCurrentSkill("express")}
+            style={{
+              backgroundColor: "rgb(248, 250, 252)",
+              padding: 2,
+              borderRadius: 111,
+            }}
+            onMouseLeave={() => setCurrentSkill("")}
+            src="/express.svg"
+            width={80}
+            height={80}
+            alt="icon"
+          />
           <StyledTechnologyImage
             onMouseEnter={() => setCurrentSkill("java")}
             onMouseLeave={() => setCurrentSkill("")}

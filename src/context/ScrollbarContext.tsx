@@ -1,6 +1,5 @@
 "use client";
 
-import getNameFromLocalStorage from "@/utils/getNameFromLocalStorage";
 import { ReactNode, createContext, useState } from "react";
 
 interface ScrollbarContextType {

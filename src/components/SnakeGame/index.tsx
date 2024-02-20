@@ -366,6 +366,7 @@ export default function SnakeGame() {
     <StyledSnakeGame>
       <StyledTipsTitle>Jogo da Cobrinha 🐍🍎</StyledTipsTitle>
       {gameComponent}
+      <StyledTips>O jogo foi feito utilizando os hooks do React para lógica e HTML Canvas para renderização dos gráficos.</StyledTips>
     </StyledSnakeGame>
   );
 }

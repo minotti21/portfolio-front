@@ -17,6 +17,10 @@ export const StyledText = styled.p`
   @media screen and (max-width: 1480px) {
     font-size: 1.4em;
   }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+  }
 `;
 
 export const StyledInput = styled.input`
@@ -37,6 +41,10 @@ export const StyledInput = styled.input`
   outline: none;
   border: none;
   transition: 0.3s;
+  
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+  }
 
   &:focus {
     -webkit-box-shadow: ${({ theme }) =>
@@ -65,6 +73,10 @@ export const StyledTextArea = styled.textarea`
   resize: none;
   margin-bottom: 0.6em;
   transition: 0.3s;
+  
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+  }
 
   &:focus {
     -webkit-box-shadow: ${({ theme }) =>
@@ -80,4 +92,9 @@ export const StyledLabel = styled.label`
   margin-bottom: 0.4em;
   margin-left: 0.2em;
   display: inline-block;
+
+  
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+  }
 `;

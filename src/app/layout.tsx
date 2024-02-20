@@ -6,6 +6,7 @@ import AppContainer from "../components/AppContainer";
 import SkeletonLoading from "@/components/SkeletonLoading";
 import WindowHeightProvider from "@/context/WindowHeightContext";
 import ScrollbarProvider from "@/context/ScrollbarContext";
+import IsMobileProvider from "@/context/IsMobileContext";
 
 const DynamicUserThemeProvider = dynamic(
   () => import("../context/UserThemeContext"),
@@ -21,6 +22,7 @@ const poppins = Poppins({
 export const metadata = {
   title: "minotti.dev",
   description: "Portfólio de Vinicius Minotti",
+  visualViewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
@@ -35,9 +37,11 @@ export default function RootLayout({
           <DynamicUserThemeProvider>
             <NameProvider>
               <WindowHeightProvider>
-                <ScrollbarProvider>
-                  <AppContainer>{children}</AppContainer>
-                </ScrollbarProvider>
+                <IsMobileProvider>
+                  <ScrollbarProvider>
+                    <AppContainer>{children}</AppContainer>
+                  </ScrollbarProvider>
+                </IsMobileProvider>
               </WindowHeightProvider>
             </NameProvider>
           </DynamicUserThemeProvider>

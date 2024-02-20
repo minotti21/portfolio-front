@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps } from "react";
+import { ButtonHTMLAttributes, DetailedHTMLProps, useContext } from "react";
 import { StyledButton } from "./styles";
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 interface ButtonProps
   extends DetailedHTMLProps<
@@ -10,5 +11,7 @@ interface ButtonProps
 }
 
 export default function Button({ text, ...props }: ButtonProps) {
-  return <StyledButton {...props}>{text}</StyledButton>;
+  const { isMobile } = useContext(IsMobileContext);
+
+  return <StyledButton ismobile={isMobile} {...props}>{text}</StyledButton>;
 }

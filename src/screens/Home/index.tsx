@@ -17,6 +17,7 @@ import {
 import Button from "@/components/Button";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { Link } from "react-scroll";
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 const getImagePath = (backgroundColor: string, defaultColor: string) => {
   let imageSrc = "";

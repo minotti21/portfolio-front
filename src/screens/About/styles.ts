@@ -17,36 +17,60 @@ export const StyledText = styled.p`
   @media screen and (max-width: 1480px) {
     font-size: 1.4em;
   }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.1em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 0.6em;
+  }
 `;
 
 export const TextContainer = styled.div`
-  flex: 0.5;
+  flex: 1;
 `;
 
 export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6em;
+
+  @media screen and (max-width: 1100px) {
+    gap: 4em;
+  }
 `;
 
 export const TextAndImageContainer = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 6em;
+
+  @media screen and (max-width: 1100px) {
+    gap: 4em;
+  }
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const StyledSkillsText = styled.p`
   font-size: 1em;
   color: #999;
   margin-top: 0.4em;
+
+  @media screen and (max-width: 1100px) {
+    font-size: 0.8em;
+  }
 `;
 
 export const StyledImage = styled.div`
-  width: 600px;
-  height: 300px;
   position: relative;
-  flex: 0.5;
+  width: 100%;
+  flex: 1;
   border-radius: 12px;
 `;
 
@@ -68,14 +92,18 @@ export const IconsContainer = styled.div`
     bottom: -12.5px;
     left: -32px;
   }
+
+  @media screen and (max-width: 1100px) {
+    bottom: 42px;
+    left: -32px;
+  }
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
 `;
 
 export const ResponsiveImage = styled(Image)`
-  width: 600px;
-  height: 337.5px;
-
-  @media screen and (max-width: 1480px) {
-    width: 500px;
-    height: 281.25px;
-  }
+  object-fit: cover;
+  width: 100%;
 `;

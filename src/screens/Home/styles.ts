@@ -6,6 +6,13 @@ export const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    padding: 8em 0;
+    gap: 2em;
+    height: auto;
+  }
 `;
 
 export const StyledTitle = styled.h1`
@@ -17,6 +24,14 @@ export const StyledTitle = styled.h1`
   @media screen and (max-width: 1480px) {
     font-size: 2.2em;
   }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.6em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.2em;
+  }
 `;
 
 export const StyledText = styled.p`
@@ -26,12 +41,26 @@ export const StyledText = styled.p`
   @media screen and (max-width: 1480px) {
     font-size: 1.4em;
   }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.2em;
+  }
+
+  @media screen and (max-width: 800px) {
+    font-size: 1em;
+  }
 `;
 
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.4em;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    text-align: center;
+    list-style-position: inside;
+  }
 `;
 
 export const TitleContainer = styled.div``;
@@ -69,6 +98,10 @@ export const StyledItemList = styled.li`
   @media screen and (max-width: 1480px) {
     font-size: 1.2em;
   }
+
+  @media screen and (max-width: 1100px) {
+    font-size: 1.0em;
+  }
 `;
 
 export const Imagecontainer = styled(Image)`
@@ -79,6 +112,11 @@ export const Imagecontainer = styled(Image)`
   @media screen and (max-width: 1480px) {
     width: 600px;
     height: 450px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    width: 300px;
+    height: 213px;
   }
 
   &:hover {

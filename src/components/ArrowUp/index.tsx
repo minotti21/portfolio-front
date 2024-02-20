@@ -3,6 +3,7 @@ import { ArrowContainer } from "./styles";
 import { WindowHeightContext } from "@/context/WindowHeightContext";
 import { useContext } from "react";
 import { animateScroll } from 'react-scroll';
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 
 const options = {
@@ -16,6 +17,9 @@ const scrollToTop = () => {
 
 export default function ArrowUp() {
   const { currentHeight } = useContext(WindowHeightContext);
+  const { isMobile } = useContext(IsMobileContext);
+
+  if (isMobile) return null;
 
   return (
     <ArrowContainer onClick={scrollToTop} $show={currentHeight > window.innerHeight * 0.8}>

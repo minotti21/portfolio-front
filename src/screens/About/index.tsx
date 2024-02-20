@@ -14,8 +14,12 @@ import {
 } from "./styles";
 import Image from "next/image";
 import Title from "@/components/Title";
+import { useContext } from "react";
+import { IsMobileContext } from "@/context/IsMobileContext";
 
 export default function About() {
+  const { isMobile } = useContext(IsMobileContext);
+
   return (
     <SectionContainer id="about">
       <AboutContainer>
@@ -30,11 +34,10 @@ export default function About() {
                 pandemia chegou com tudo.
               </StyledText>
               <StyledSkillsText>
-                Soft Skills: Pensamento crítico; resolução de problemas; atendimento aos logistas e representantes
+                Soft Skills: Pensamento crítico; resolução de problemas;
+                atendimento aos logistas e representantes
               </StyledSkillsText>
-              <StyledSkillsText>
-                Hard Skills: SAP; Excel; Word
-              </StyledSkillsText>
+              <StyledSkillsText>Hard Skills: SAP; Excel; Word</StyledSkillsText>
             </TextContainer>
             <StyledImage>
               <ResponsiveImage
@@ -44,14 +47,18 @@ export default function About() {
                 height={337.5}
                 style={{ borderRadius: 12 }}
               />
-              <IconsContainer>
-                <Image src="/sap.svg" width={50} height={50} alt="icon" />
-                <Image src="/excel.svg" width={50} height={50} alt="icon" />
-                <Image src="/word.svg" width={50} height={50} alt="icon" />
-              </IconsContainer>
+              {!isMobile && (
+                <IconsContainer>
+                  <Image src="/sap.svg" width={50} height={50} alt="icon" />
+                  <Image src="/excel.svg" width={50} height={50} alt="icon" />
+                  <Image src="/word.svg" width={50} height={50} alt="icon" />
+                </IconsContainer>
+              )}
             </StyledImage>
           </TextAndImageContainer>
-          <TextAndImageContainer>
+          <TextAndImageContainer
+            style={{ flexDirection: isMobile ? "column-reverse" : "row" }}
+          >
             <StyledImage>
               <ResponsiveImage
                 src="/league-of-legends.webp"
@@ -80,9 +87,9 @@ export default function About() {
             <TextContainer>
               <StyledText>
                 Após um ano tentando, decidi seguir outro caminho. A programação
-                sempre esteve comigo, apenas não havia enxergado. Logo comecei a me
-                dedicar aos estudos, tive um grande apoio de amigos que já eram
-                da área.
+                sempre esteve comigo, apenas não havia enxergado. Logo comecei a
+                me dedicar aos estudos, tive um grande apoio de amigos que já
+                eram da área.
               </StyledText>
               <StyledSkillsText>
                 Soft Skills: Criatividade, adaptabilidade e melhoria nas skills
@@ -100,11 +107,13 @@ export default function About() {
                 height={337.5}
                 style={{ borderRadius: 12 }}
               />
-              <IconsContainer>
-                <Image src="/pc.svg" width={50} height={50} alt="icon" />
-                <Image src="/monitor.svg" width={50} height={50} alt="icon" />
-                <Image src="/server.svg" width={50} height={50} alt="icon" />
-              </IconsContainer>
+              {!isMobile && (
+                <IconsContainer>
+                  <Image src="/pc.svg" width={50} height={50} alt="icon" />
+                  <Image src="/monitor.svg" width={50} height={50} alt="icon" />
+                  <Image src="/server.svg" width={50} height={50} alt="icon" />
+                </IconsContainer>
+              )}
             </StyledImage>
           </TextAndImageContainer>
         </FlexContainer>
