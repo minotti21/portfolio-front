@@ -23,10 +23,19 @@ export const StyledModal = styled.div`
   color: ${({ theme }) => theme.fontColor};
   padding: 30px;
   border-radius: 16px;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    margin: 0 2em;
+  }
 `;
 
 export const StyledText = styled.label`
   font-size: 1.75em;
+
+  @media screen and (max-width: 800px) {
+    font-size: 1.2em;
+  }
 `;
 
 export const StyledSubText = styled.p`
@@ -51,6 +60,11 @@ export const StyledInput = styled.input`
   outline: none;
   border: none;
 
+  @media screen and (max-width: 800px) {
+    font-size: 1.1em;
+    height: 56px;
+  }
+
   &::placeholder {
     font-size: 0.6em;
   }
@@ -72,6 +86,11 @@ export const StyledColorIcon = styled.div`
   border: ${({ theme: { defaultColor }, color }) =>
     defaultColor === color ? "3px solid white" : "none"};
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const StyledError = styled.p``;

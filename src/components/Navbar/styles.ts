@@ -154,7 +154,7 @@ export const MobileNavbar = styled.nav`
 
 export const CloseIcon = styled(IoClose)`
   position: absolute;
-  right: 60px;
+  right: 2em;
   top: 16px;
 `
 
@@ -178,8 +178,8 @@ export const MobileNavItem = styled.li`
 `
 
 export const StyledColorIcon = styled.div`
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   border: 2px solid rgb(255, 255, 255);
   background-color: ${(props) => props.color};

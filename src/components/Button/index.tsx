@@ -13,5 +13,5 @@ interface ButtonProps
 export default function Button({ text, ...props }: ButtonProps) {
   const { isMobile } = useContext(IsMobileContext);
 
-  return <StyledButton ismobile={isMobile} {...props}>{text}</StyledButton>;
+  return <StyledButton isMobile={isMobile} {...props}>{text}</StyledButton>;
 }
