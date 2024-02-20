@@ -5,6 +5,7 @@ import { Poppins } from "next/font/google";
 import AppContainer from "../components/AppContainer";
 import SkeletonLoading from "@/components/SkeletonLoading";
 import WindowHeightProvider from "@/context/WindowHeightContext";
+import ScrollbarProvider from "@/context/ScrollbarContext";
 
 const DynamicUserThemeProvider = dynamic(
   () => import("../context/UserThemeContext"),
@@ -14,7 +15,7 @@ const DynamicUserThemeProvider = dynamic(
 const poppins = Poppins({
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  display: 'auto'
+  display: "auto",
 });
 
 export const metadata = {
@@ -34,7 +35,9 @@ export default function RootLayout({
           <DynamicUserThemeProvider>
             <NameProvider>
               <WindowHeightProvider>
-                <AppContainer>{children}</AppContainer>
+                <ScrollbarProvider>
+                  <AppContainer>{children}</AppContainer>
+                </ScrollbarProvider>
               </WindowHeightProvider>
             </NameProvider>
           </DynamicUserThemeProvider>

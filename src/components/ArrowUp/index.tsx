@@ -17,6 +17,8 @@ const scrollToTop = () => {
 export default function ArrowUp() {
   const { currentHeight } = useContext(WindowHeightContext);
 
+  console.log(screen.width)
+
   return (
     <ArrowContainer onClick={scrollToTop} $show={currentHeight > window.innerHeight * 0.8}>
       <FaArrowUp color="#fff" size={20} />

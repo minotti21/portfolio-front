@@ -10,6 +10,10 @@ export const StyledPaint = styled.div`
 export const StyledTitle = styled.h1`
   font-size: 2em;
   margin-bottom: 1em;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 1.75em;
+  }
 `;
 
 export const StyledPaintContainer = styled.div`

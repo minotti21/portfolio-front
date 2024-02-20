@@ -9,13 +9,15 @@ import Footer from "../Footer";
 import MainContainer from "../MainContainer";
 import InitialModal from "../InitialModal";
 import ArrowUp from "../ArrowUp";
+import { ScrollbarContext } from "@/context/ScrollbarContext";
 
 export default function AppContainer({ children }: { children: ReactNode }) {
   const { theme } = useContext(UserThemeContext);
+  const { showScrollbar } = useContext(ScrollbarContext);
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <GlobalStyle showScrollbar={showScrollbar} />
       <MainContainer>
         <ArrowUp />
         <InitialModal />

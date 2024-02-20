@@ -13,6 +13,10 @@ export const AboutContainer = styled.div`
 export const StyledText = styled.p`
   font-size: 1.5em;
   font-weight: 400;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 1.4em;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -23,7 +27,7 @@ export const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 6em;
-`
+`;
 
 export const TextAndImageContainer = styled.div`
   display: flex;
@@ -49,8 +53,8 @@ export const StyledImage = styled.div`
 export const IconsContainer = styled.div`
   position: absolute;
   padding: 0.5em 1em;
-  bottom: -2em;
-  left: -2em;
+  bottom: -67.5px;
+  left: -32px;
   display: flex;
   gap: 2em;
   transition: 0.3s;
@@ -59,5 +63,19 @@ export const IconsContainer = styled.div`
       ? rgbUtils.lightenRGBColor(theme.fontColor, 20)
       : rgbUtils.darkenRGBColor(theme.fontColor, 20)};
   border-radius: 12px;
+
+  @media screen and (max-width: 1480px) {
+    bottom: -12.5px;
+    left: -32px;
+  }
 `;
 
+export const ResponsiveImage = styled(Image)`
+  width: 600px;
+  height: 337.5px;
+
+  @media screen and (max-width: 1480px) {
+    width: 500px;
+    height: 281.25px;
+  }
+`;

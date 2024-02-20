@@ -18,8 +18,9 @@ export const StyledBorderColorSelectorIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.2s;
+  transition: 0.3s;
   border-radius: 50%;
+  margin-left: 0.6em;
   width: 28px;
   height: 28px;
   background: ${({ theme }) => theme.defaultColor};

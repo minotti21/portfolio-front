@@ -17,6 +17,10 @@ export const StyledButton = styled.button`
   font-weight: 600;
   font-size: 1.6em;
 
+  &:disabled {
+    opacity: 0.5;
+  }
+
   &:hover {
     background-color: ${({ theme: { defaultColor, backgroundColor } }) =>
       backgroundColor === white

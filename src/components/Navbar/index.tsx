@@ -15,7 +15,7 @@ import { isEqual } from "lodash";
 import { UserThemeContext } from "@/context/UserThemeContext";
 import { black, white } from "@/constants/colors";
 import { WindowHeightContext } from "@/context/WindowHeightContext";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll, animateScroll as scroll } from "react-scroll";
 
 export default function Navbar() {
   const { currentHeight } = useContext(WindowHeightContext);
@@ -24,6 +24,15 @@ export default function Navbar() {
   const showBorder = currentHeight !== 0;
 
   const isThemeLight = theme.backgroundColor === white;
+
+  const options = {
+    duration: 1000,
+    smooth: true,
+  };
+
+  const scrollToTop = () => {
+    animateScroll.scrollToTop(options);
+  }
 
   const toggleTheme = () => {
     const newTheme = {
@@ -42,7 +51,7 @@ export default function Navbar() {
   return (
     <NavbarPosition $showBorder={showBorder}>
       <NavbarContainer>
-        <StyledLogo>minotti.dev</StyledLogo>
+        <StyledLogo onClick={scrollToTop}>minotti.dev</StyledLogo>
         <StyledNavItems>
           <StyledNavItem>
             <Link to="about" duration={1000} offset={-92} smooth={true}>Sobre</Link>

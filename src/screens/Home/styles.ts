@@ -6,7 +6,6 @@ export const HomeContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
 `;
 
 export const StyledTitle = styled.h1`
@@ -14,17 +13,19 @@ export const StyledTitle = styled.h1`
   font-weight: 600;
   font-size: 2.6em;
   line-height: 1.25em;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 2.2em;
+  }
 `;
 
 export const StyledText = styled.p`
   font-size: 1.6em;
   color: ${({ theme }) => theme.fontColor};
-`;
 
-export const StyledSubtitle = styled.p`
-  font-size: 2em;
-  color: ${({ theme }) => theme.fontColor};
-  font-weight: 500;
+  @media screen and (max-width: 1480px) {
+    font-size: 1.4em;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -39,7 +40,7 @@ export const StyledList = styled.ul``;
 
 const animation = keyframes`
  0% { scale: 1 }
- 50% { scale: 0.9 }
+ 50% { scale: 0.94 }
  100% { scale: 1 }
 `;
 
@@ -64,9 +65,23 @@ export const StyledItemList = styled.li`
   margin-left: 1.2em;
   font-size: 1.4em;
   font-weight: 300;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 1.2em;
+  }
 `;
 
 export const Imagecontainer = styled(Image)`
-  border-radius: 12px;
-  transition: 0.3s;
-`
+  transition: 0.6s;
+  width: 720px;
+  height: 540px;
+  
+  @media screen and (max-width: 1480px) {
+    width: 600px;
+    height: 450px;
+  }
+
+  &:hover {
+    scale: 1.02;
+  }
+`;

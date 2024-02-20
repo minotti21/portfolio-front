@@ -23,6 +23,10 @@ export const StyledMiddleText = styled.p`
   font-size: 1.4em;
   font-weight: 400;
   text-align: center;
+  
+  @media screen and (max-width: 1480px) {
+    font-size: 1.3em;
+  }
 `;
 
 const animation = keyframes`
@@ -35,6 +39,13 @@ const animation = keyframes`
 export const StyledTechnologyImage = styled(Image)`
   transition: 0.3s;
   opacity: 0.4;
+  width: 80px;
+  height: 80px;
+
+  @media screen and (max-width: 1480px) {
+    width: 72px;
+    height: 72px;
+  }
 
   &:hover {
     opacity: 1;
@@ -73,12 +84,20 @@ export const TechnologyInfoContainer = styled.div`
 export const TechnologyInfoTitle = styled.h2`
   font-size: 2em;
   font-weight: 600;
+  
+  @media screen and (max-width: 1480px) {
+    font-size: 1.8em;
+  }
 `;
 
 export const TechnologyInfoText = styled.p`
   font-size: 1.3em;
   font-weight: 300;
   text-align: center;
+  
+  @media screen and (max-width: 1480px) {
+    font-size: 1.2em;
+  }
 `;
 
 export const ExperienceText = styled.p`

@@ -27,6 +27,10 @@ export const Info = styled.div`
   margin-bottom: 4em;
   width: 100%;
   max-width: 1280px;
+  
+  @media screen and (max-width: 1480px) {
+    max-width: 1100px;
+  }
 `;
 
 export const SocialMediaContainer = styled.a`

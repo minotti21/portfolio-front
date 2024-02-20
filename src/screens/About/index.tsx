@@ -5,6 +5,7 @@ import {
   AboutContainer,
   FlexContainer,
   IconsContainer,
+  ResponsiveImage,
   StyledImage,
   StyledSkillsText,
   StyledText,
@@ -36,13 +37,12 @@ export default function About() {
               </StyledSkillsText>
             </TextContainer>
             <StyledImage>
-              <Image
+              <ResponsiveImage
                 src="/office.jpg"
                 alt="escritório"
-                fill={true}
-                sizes="width: 592px"
+                width={600}
+                height={337.5}
                 style={{ borderRadius: 12 }}
-                quality={100}
               />
               <IconsContainer>
                 <Image src="/sap.svg" width={50} height={50} alt="icon" />
@@ -53,13 +53,12 @@ export default function About() {
           </TextAndImageContainer>
           <TextAndImageContainer>
             <StyledImage>
-              <Image
+              <ResponsiveImage
                 src="/league-of-legends.png"
                 alt="escritório"
-                fill={true}
-                sizes="width: 592px"
+                width={600}
+                height={337.5}
                 style={{ borderRadius: 12 }}
-                quality={100}
               />
             </StyledImage>
             <TextContainer>
@@ -94,13 +93,12 @@ export default function About() {
               </StyledSkillsText>
             </TextContainer>
             <StyledImage>
-              <Image
-                src="/programming.webp"
+              <ResponsiveImage
+                src="/programming.jpg"
                 alt="escritório"
-                fill={true}
-                sizes="width: 592px"
+                width={600}
+                height={337.5}
                 style={{ borderRadius: 12 }}
-                quality={100}
               />
               <IconsContainer>
                 <Image src="/pc.svg" width={50} height={50} alt="icon" />

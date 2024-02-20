@@ -36,6 +36,10 @@ export const StyledTipsTitle = styled.h1`
   margin-bottom: 1em;
   text-align: center;
   font-weight: bold;
+
+  @media screen and (max-width: 1480px) {
+    font-size: 1.75em;
+  }
 `;
 
 export const GameTitle = styled.h1`

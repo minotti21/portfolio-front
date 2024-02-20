@@ -36,12 +36,12 @@ const generateNewApplePosition = (
 
 export default function SnakeGame() {
   const [gameState, setGameState] = useState<GameStates>(GameStates.Unstarted);
-  const [score, setScore] = useState(0);
   const [snakePosition, setSnakePosition] = useState([{ x: 460, y: 200 }]);
   const [snakeDirection, setSnakeDirection] = useState<SnakeDirections>(
     SnakeDirections.Right,
   );
   const applePosition = useRef(generateNewApplePosition(snakePosition));
+  const score = useRef(0);
 
   const theme = useTheme();
 
@@ -59,10 +59,8 @@ export default function SnakeGame() {
         const newSnakePosition = snakePosition;
 
         if (snakePosition[0].x >= 880) {
-          newSnakePosition.unshift({
-            x: 0,
-            y: snakePosition[0].y,
-          });
+          setGameState(GameStates.Over);
+          break;
         } else {
           newSnakePosition.unshift({
             x: snakePosition[0].x + 20,
@@ -80,10 +78,8 @@ export default function SnakeGame() {
         const newSnakePosition = snakePosition;
 
         if (snakePosition[0].x <= 0) {
-          newSnakePosition.unshift({
-            x: 900,
-            y: snakePosition[0].y,
-          });
+          setGameState(GameStates.Over);
+          break;
         } else {
           newSnakePosition.unshift({
             x: snakePosition[0].x - 20,
@@ -101,10 +97,8 @@ export default function SnakeGame() {
         const newSnakePosition = snakePosition;
 
         if (snakePosition[0].y <= 0) {
-          newSnakePosition.unshift({
-            y: 400,
-            x: snakePosition[0].x,
-          });
+          setGameState(GameStates.Over);
+          break;
         } else {
           newSnakePosition.unshift({
             y: snakePosition[0].y - 20,
@@ -122,10 +116,8 @@ export default function SnakeGame() {
         const newSnakePosition = snakePosition;
 
         if (snakePosition[0].y >= 380) {
-          newSnakePosition.unshift({
-            y: 0,
-            x: snakePosition[0].x,
-          });
+          setGameState(GameStates.Over);
+          break;
         } else {
           newSnakePosition.unshift({
             y: snakePosition[0].y + 20,
@@ -160,7 +152,7 @@ export default function SnakeGame() {
       snakePosition[0].y == applePosition.current.y
     ) {
       applePosition.current = generateNewApplePosition(snakePosition);
-      setScore(score + 10);
+      score.current = score.current + 10;
       feedSnake();
     }
   };
@@ -328,14 +320,14 @@ export default function SnakeGame() {
       ctx.font = "bold 28px sans-serif";
       ctx.fillStyle = "black";
 
-      ctx.fillText(`Score: ${score}`, 32, 32);
+      ctx.fillText(`Score: ${score.current}`, 32, 32);
     },
     [snakePosition, snakeDirection, applePosition, theme],
   );
 
   const startGame = () => {
     setGameState(GameStates.Running);
-    setScore(0);
+    score.current = 0
     setSnakePosition([{ x: 460, y: 200 }]);
     applePosition.current = generateNewApplePosition(snakePosition);
   };
@@ -353,7 +345,7 @@ export default function SnakeGame() {
   if (gameState == GameStates.Running) {
     gameComponent = (
       <>
-        <Canvas draw={draw} width={900} height={400} score={score} />
+        <Canvas draw={draw} width={900} height={400} score={score.current} />
       </>
     );
   }
@@ -362,7 +354,7 @@ export default function SnakeGame() {
     gameComponent = (
       <>
         <StyledGameScreen>
-          <GameTitle>Você fez {score} pontos! 🥳</GameTitle>
+          <GameTitle>Você fez {score.current} pontos! 🥳</GameTitle>
           <StyledTips>Deseja jogar novamente?</StyledTips>
           <Button text="Jogar" onClick={() => startGame()} />
         </StyledGameScreen>

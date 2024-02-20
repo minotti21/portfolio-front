@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import rgbUtils from "./rgbUtils";
 import { white } from "@/constants/colors";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ showScrollbar: boolean }>`
     * {
         margin: 0;
         padding: 0;
@@ -41,5 +41,10 @@ export const GlobalStyle = createGlobalStyle`
             background-color: ${({ theme }) =>
               rgbUtils.darkenRGBColor(theme.defaultColor, 30)};
         }
+    }
+
+    body {
+        overflow: ${({ showScrollbar }) =>
+          showScrollbar ? "auto" : "hidden"} ;
     }
 `;

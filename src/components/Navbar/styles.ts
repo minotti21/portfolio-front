@@ -34,6 +34,10 @@ export const NavbarContainer = styled.div`
   max-width: 1280px;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 1480px) {
+    max-width: 1100px;
+  }
 `;
 
 export const StyledLogo = styled.h1`
@@ -54,7 +58,8 @@ export const StyledLogo = styled.h1`
 
 export const StyledNavItems = styled.ul`
   display: flex;
-  justify-content: space-between;
+  gap: 1em;
+  justify-content: flex-end;
   align-items: center;
   list-style: none;
   width: 40%;

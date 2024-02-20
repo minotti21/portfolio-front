@@ -18,6 +18,7 @@ import { NameContext } from "@/context/NameContext";
 import Button from "../Button";
 import { useForm } from "react-hook-form";
 import Title from "../Title";
+import { ScrollbarContext } from "@/context/ScrollbarContext";
 
 interface FormType {
   name: string | undefined;
@@ -33,10 +34,12 @@ export default function InitialModal() {
     setFocus,
   } = useForm<FormType>();
   const [isVisible, setIsVisible] = useState(false);
+  const { setShowScrollbar } = useContext(ScrollbarContext);
 
   useEffect(() => {
     if (name === "") {
       setIsVisible(true);
+      setShowScrollbar(false)
       return;
     }
 
@@ -65,6 +68,7 @@ export default function InitialModal() {
     name != undefined && localStorage.setItem("name", name);
     setName(name);
 
+    setShowScrollbar(true);
     setIsVisible(false);
   };
 
