@@ -26,25 +26,25 @@ export default function QuoteOfTheday() {
   const getAnotherQuote = async () => {
     if (isRequesting) return;
 
-    setIsRequesting(true);
-
     setQuote({
       quote: "😁",
       author: "A citação está carregando...",
     });
 
     await getQuote();
-
-    setIsRequesting(false);
   };
 
   const getQuote = async () => {
     try {
+      setIsRequesting(true);
+
       const { data } = await api.get("/quote");
 
       setQuote(data);
     } catch (error) {
       setQuote({ quote: "Houve um erro ao carregar a citação", author: "😪" });
+    } finally {
+      setIsRequesting(false);
     }
   };
 

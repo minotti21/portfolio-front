@@ -27,7 +27,7 @@ export default function Canvas({
     const ctx = canvas?.getContext("2d");
 
     function render() {
-      if (ctx && frameCount % 8 == 0) draw(ctx);
+      if (ctx && frameCount % 20 == 0) draw(ctx);
       frameCount += 1;
       animationFrame = window.requestAnimationFrame(render);
     }

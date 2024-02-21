@@ -22,11 +22,13 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "minotti.dev",
-  icons: {
-    icon: "/test.png",
-  },
   description: "Portfólio de Vinicius Minotti",
+  applicationName: "portfolio-front",
   viewport: "width=device-width, initial-scale=1",
+  keywords:
+    "vinicius minotti, desenvolvimento web, desenvolvedor full-stack, next.js, node.js, react, styled-components, javascript, mongodb",
+  category: "Portfólio Desenvolvedor Full-stack",
+  generator: "Next.js",
 };
 
 export default function RootLayout({
