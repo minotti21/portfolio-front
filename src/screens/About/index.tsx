@@ -35,7 +35,7 @@ export default function About() {
               </StyledText>
               <StyledSkillsText>
                 Soft Skills: Pensamento crítico; resolução de problemas;
-                atendimento aos logistas e representantes
+                atendimento aos lojistas e representantes
               </StyledSkillsText>
               <StyledSkillsText>Hard Skills: SAP; Excel; Word</StyledSkillsText>
             </TextContainer>
