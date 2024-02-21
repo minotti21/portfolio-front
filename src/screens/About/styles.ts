@@ -81,7 +81,7 @@ export const StyledImage = styled.div`
 export const IconsContainer = styled.div`
   position: absolute;
   padding: 0.5em 1em;
-  bottom: -67.5px;
+  bottom: -24px;
   left: -32px;
   display: flex;
   gap: 2em;
@@ -91,11 +91,6 @@ export const IconsContainer = styled.div`
       ? rgbUtils.lightenRGBColor(theme.fontColor, 20)
       : rgbUtils.darkenRGBColor(theme.fontColor, 20)};
   border-radius: 12px;
-
-  @media screen and (max-width: 1480px) {
-    bottom: -12.5px;
-    left: -32px;
-  }
 
   @media screen and (max-width: 1100px) {
     bottom: 42px;
