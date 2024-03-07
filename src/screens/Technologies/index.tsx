@@ -41,7 +41,7 @@ export default function Technologies() {
             feitos no computador.
           </TechnologyInfoText>
           <ExperienceText>
-            Tempo de experiência: 2 anos e 5 meses
+            Tempo de experiência: 3 anos
           </ExperienceText>
         </>
       );
@@ -63,7 +63,7 @@ export default function Technologies() {
             de estilo e texto, trazendo mais organização aos projetos.
           </TechnologyInfoText>
           <ExperienceText>
-            Tempo de experiência: 2 anos e 5 meses
+            Tempo de experiência: 3 anos
           </ExperienceText>
         </>
       );
@@ -106,7 +106,7 @@ export default function Technologies() {
             para produção, remove todas as classes não utilizadas, reduzindo o
             tamanho do arquivo final.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 10 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 1 ano</ExperienceText>
         </>
       );
 
@@ -127,7 +127,7 @@ export default function Technologies() {
             componente, é bem útil em projetos que necessitam de lógica nos
             estilos.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
       );
 
@@ -149,7 +149,7 @@ export default function Technologies() {
             internet das coisas, etc.
           </TechnologyInfoText>
           <ExperienceText>
-            Tempo de experiência: 2 anos e 4 meses
+            Tempo de experiência: 3 anos
           </ExperienceText>
         </>
       );
@@ -172,7 +172,7 @@ export default function Technologies() {
             ótimo para manter o código organizado sem a utilização de
             frameworks.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
       );
 
@@ -194,7 +194,7 @@ export default function Technologies() {
             utilizando ele e particularmente, sou um grande estusiasta das duas
             tecnologias.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
+          <ExperienceText>Tempo de experiência: 3 anos</ExperienceText>
         </>
       );
 
@@ -216,7 +216,7 @@ export default function Technologies() {
             perdendo um pouco de força por conta da poderosa combinação de hooks
             useContext e useReducer do React.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 1 ano e 4 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
       );
 
@@ -302,7 +302,7 @@ export default function Technologies() {
             Além da possibilidade de desenvolver APIs para web com o framework
             Spring Boot.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 1 ano</ExperienceText>
+          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
       );
 
@@ -324,7 +324,7 @@ export default function Technologies() {
             linguagem Kotlin no desenvolvimento Android, linguagem de uso mais
             dinâmico e conciso.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 8 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 1 ano</ExperienceText>
         </>
       );
 
@@ -344,7 +344,7 @@ export default function Technologies() {
             linhas e colunas) e os não relacionais (organizado a partir de
             documentos como JSON, chave-valor, etc).
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 1 ano e 6 meses</ExperienceText>
+          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
         </>
       );
 
@@ -365,7 +365,7 @@ export default function Technologies() {
             uma cópia local do projeto e podem passar suas alterações conforme
             necessidade.
           </TechnologyInfoText>
-          <ExperienceText>Tempo de experiência: 2 anos</ExperienceText>
+          <ExperienceText>Tempo de experiência: 3 anos</ExperienceText>
         </>
       );
 
